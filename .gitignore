@@ -1,0 +1,4 @@
+save/
+*.pyc
+data/
+nohup.out
