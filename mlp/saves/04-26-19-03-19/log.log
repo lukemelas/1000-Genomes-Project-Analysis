@@ -1,9 +1,0 @@
-COMMAND LINE ARGS: main.py
-ARGS: Namespace(b=16, data='../data/data_pca_1000comps.pkl', dp=0.5, epochs=300, evaluate=False, lr=0.002, lr_decay_cooldown=5, lr_decay_factor=0.99, lr_decay_patience=10, model=None, print_freq=100, random_seed=42, savepath=None, test_size=0.33)
-OPTIMIZER: <torch.optim.adam.Adam object at 0x7f2320882f28>
-LEARNING RATE: 0.002
-SCHEDULER: {'factor': 0.99, 'patience': 10, 'threshold_mode': 'rel', 'eps': 1e-08, 'best': -inf, 'optimizer': <torch.optim.adam.Adam object at 0x7f2320882f28>, 'mode_worse': -inf, 'cooldown': 5, 'is_better': <function ReduceLROnPlateau._init_is_better.<locals>.<lambda> at 0x7f233f96dae8>, 'num_bad_epochs': 0, 'min_lrs': [0], 'last_epoch': -1, 'threshold': 0.0001, 'cooldown_counter': 0, 'verbose': True, 'mode': 'max'}
-MODEL: LogisticRegression(
-  (linear): Linear(in_features=1000, out_features=26, bias=True)
-)
-
