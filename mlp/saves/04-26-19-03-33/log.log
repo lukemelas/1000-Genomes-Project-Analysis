@@ -1,0 +1,17 @@
+COMMAND LINE ARGS: main.py
+ARGS: Namespace(b=16, data='../data/data_pca_1000comps.pkl', dp=0.5, epochs=300, evaluate=False, lr=0.002, lr_decay_cooldown=5, lr_decay_factor=0.99, lr_decay_patience=10, model=None, print_freq=100, random_seed=42, savepath=None, test_size=0.33)
+OPTIMIZER: <torch.optim.adam.Adam object at 0x7fa09ab4ef28>
+LEARNING RATE: 0.002
+SCHEDULER: {'best': -inf, 'eps': 1e-08, 'cooldown': 5, 'cooldown_counter': 0, 'patience': 10, 'is_better': <function ReduceLROnPlateau._init_is_better.<locals>.<lambda> at 0x7fa0b9c3aae8>, 'last_epoch': -1, 'mode': 'max', 'mode_worse': -inf, 'min_lrs': [0], 'num_bad_epochs': 0, 'threshold_mode': 'rel', 'factor': 0.99, 'verbose': True, 'threshold': 0.0001, 'optimizer': <torch.optim.adam.Adam object at 0x7fa09ab4ef28>}
+MODEL: LogisticRegression(
+  (linear): Linear(in_features=1000, out_features=26, bias=True)
+)
+
+Epoch[1/300] 	 Iter [  1/145] 	 Loss: 54.999
+Epoch[1/300] 	 Iter [101/145] 	 Loss: 27.381
+Epoch[1/300] 	 Validation Accuracy 676/1139 = 59.350% 
+
+Epoch[2/300] 	 Iter [  1/145] 	 Loss: 1.096
+Epoch[2/300] 	 Iter [101/145] 	 Loss: 1.882
+Epoch[2/300] 	 Validation Accuracy 835/1139 = 73.310% 
+

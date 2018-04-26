@@ -13,13 +13,14 @@ import pdb
 data_float = pickle.load(open('data/data_scaled_float16.pkl', 'rb')) # a standardized numpy float16 array
 print('Data loaded.') 
 
-ipca = IncrementalPCA(n_components=1000, batch_size=2000)
+n = 10000
+ipca = IncrementalPCA(n_components=n, batch_size=20000)
 ipca.fit(data_float)
 print('IncrementalPCA fitted.')
 
 data_new = ipca.transform(data_float)
 print('PCA applied to data.')
 
-pickle.dump(data_new, open('data_pca_1000comps.pkl', 'wb'))
+pickle.dump(data_new, open('data_pca_{}_comps.pkl'.format(n), 'wb'))
 print('Saved post-PCA data')
 

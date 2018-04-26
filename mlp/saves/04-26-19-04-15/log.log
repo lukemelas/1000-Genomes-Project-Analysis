@@ -1,0 +1,1210 @@
+COMMAND LINE ARGS: main.py
+ARGS: Namespace(b=16, data='../data/data_pca_1000comps.pkl', dp=0.5, epochs=300, evaluate=False, lr=0.002, lr_decay_cooldown=5, lr_decay_factor=0.99, lr_decay_patience=10, model=None, print_freq=100, random_seed=42, savepath=None, test_size=0.33)
+OPTIMIZER: <torch.optim.adam.Adam object at 0x7f3057508f28>
+LEARNING RATE: 0.002
+SCHEDULER: {'num_bad_epochs': 0, 'verbose': True, 'threshold_mode': 'rel', 'mode_worse': -inf, 'patience': 10, 'is_better': <function ReduceLROnPlateau._init_is_better.<locals>.<lambda> at 0x7f30763deae8>, 'factor': 0.99, 'optimizer': <torch.optim.adam.Adam object at 0x7f3057508f28>, 'eps': 1e-08, 'min_lrs': [0], 'threshold': 0.0001, 'best': -inf, 'last_epoch': -1, 'mode': 'max', 'cooldown_counter': 0, 'cooldown': 5}
+MODEL: LogisticRegression(
+  (linear): Linear(in_features=1000, out_features=26, bias=True)
+)
+
+Epoch[1/300] 	 Iter [  1/145] 	 Loss: 35.535
+Epoch[1/300] 	 Iter [101/145] 	 Loss: 27.370
+Epoch[1/300] 	 Validation Accuracy 685/1139 = 60.140% 
+
+Epoch[2/300] 	 Iter [  1/145] 	 Loss: 0.062
+Epoch[2/300] 	 Iter [101/145] 	 Loss: 1.933
+Epoch[2/300] 	 Validation Accuracy 840/1139 = 73.749% 
+
+Epoch[3/300] 	 Iter [  1/145] 	 Loss: 0.417
+Epoch[3/300] 	 Iter [101/145] 	 Loss: 0.134
+Epoch[3/300] 	 Validation Accuracy 872/1139 = 76.558% 
+
+Epoch[4/300] 	 Iter [  1/145] 	 Loss: 0.002
+Epoch[4/300] 	 Iter [101/145] 	 Loss: 0.084
+Epoch[4/300] 	 Validation Accuracy 874/1139 = 76.734% 
+
+Epoch[5/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[5/300] 	 Iter [101/145] 	 Loss: 0.050
+Epoch[5/300] 	 Validation Accuracy 873/1139 = 76.646% 
+
+Epoch[6/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[6/300] 	 Iter [101/145] 	 Loss: 0.091
+Epoch[6/300] 	 Validation Accuracy 873/1139 = 76.646% 
+
+Epoch[7/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[7/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[7/300] 	 Validation Accuracy 874/1139 = 76.734% 
+
+Epoch[8/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[8/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[8/300] 	 Validation Accuracy 874/1139 = 76.734% 
+
+Epoch[9/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[9/300] 	 Iter [101/145] 	 Loss: 0.053
+Epoch[9/300] 	 Validation Accuracy 874/1139 = 76.734% 
+
+Epoch[10/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[10/300] 	 Iter [101/145] 	 Loss: 0.058
+Epoch[10/300] 	 Validation Accuracy 875/1139 = 76.822% 
+
+Epoch[11/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[11/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[11/300] 	 Validation Accuracy 874/1139 = 76.734% 
+
+Epoch[12/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[12/300] 	 Iter [101/145] 	 Loss: 0.070
+Epoch[12/300] 	 Validation Accuracy 879/1139 = 77.173% 
+
+Epoch[13/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[13/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[13/300] 	 Validation Accuracy 875/1139 = 76.822% 
+
+Epoch[14/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[14/300] 	 Iter [101/145] 	 Loss: 0.001
+Epoch[14/300] 	 Validation Accuracy 880/1139 = 77.261% 
+
+Epoch[15/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[15/300] 	 Iter [101/145] 	 Loss: 0.056
+Epoch[15/300] 	 Validation Accuracy 883/1139 = 77.524% 
+
+Epoch[16/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[16/300] 	 Iter [101/145] 	 Loss: 0.079
+Epoch[16/300] 	 Validation Accuracy 884/1139 = 77.612% 
+
+Epoch[17/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[17/300] 	 Iter [101/145] 	 Loss: 0.065
+Epoch[17/300] 	 Validation Accuracy 885/1139 = 77.700% 
+
+Epoch[18/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[18/300] 	 Iter [101/145] 	 Loss: 0.081
+Epoch[18/300] 	 Validation Accuracy 880/1139 = 77.261% 
+
+Epoch[19/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[19/300] 	 Iter [101/145] 	 Loss: 0.088
+Epoch[19/300] 	 Validation Accuracy 882/1139 = 77.436% 
+
+Epoch[20/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[20/300] 	 Iter [101/145] 	 Loss: 0.099
+Epoch[20/300] 	 Validation Accuracy 893/1139 = 78.402% 
+
+Epoch[21/300] 	 Iter [  1/145] 	 Loss: 0.513
+Epoch[21/300] 	 Iter [101/145] 	 Loss: 0.110
+Epoch[21/300] 	 Validation Accuracy 883/1139 = 77.524% 
+
+Epoch[22/300] 	 Iter [  1/145] 	 Loss: 0.007
+Epoch[22/300] 	 Iter [101/145] 	 Loss: 0.247
+Epoch[22/300] 	 Validation Accuracy 894/1139 = 78.490% 
+
+Epoch[23/300] 	 Iter [  1/145] 	 Loss: 0.895
+Epoch[23/300] 	 Iter [101/145] 	 Loss: 0.437
+Epoch[23/300] 	 Validation Accuracy 918/1139 = 80.597% 
+
+Epoch[24/300] 	 Iter [  1/145] 	 Loss: 0.474
+Epoch[24/300] 	 Iter [101/145] 	 Loss: 0.241
+Epoch[24/300] 	 Validation Accuracy 938/1139 = 82.353% 
+
+Epoch[25/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[25/300] 	 Iter [101/145] 	 Loss: 0.185
+Epoch[25/300] 	 Validation Accuracy 947/1139 = 83.143% 
+
+Epoch[26/300] 	 Iter [  1/145] 	 Loss: 0.014
+Epoch[26/300] 	 Iter [101/145] 	 Loss: 0.021
+Epoch[26/300] 	 Validation Accuracy 943/1139 = 82.792% 
+
+Epoch[27/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[27/300] 	 Iter [101/145] 	 Loss: 0.094
+Epoch[27/300] 	 Validation Accuracy 943/1139 = 82.792% 
+
+Epoch[28/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[28/300] 	 Iter [101/145] 	 Loss: 0.041
+Epoch[28/300] 	 Validation Accuracy 944/1139 = 82.880% 
+
+Epoch[29/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[29/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[29/300] 	 Validation Accuracy 947/1139 = 83.143% 
+
+Epoch[30/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[30/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[30/300] 	 Validation Accuracy 947/1139 = 83.143% 
+
+Epoch[31/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[31/300] 	 Iter [101/145] 	 Loss: 0.011
+Epoch[31/300] 	 Validation Accuracy 944/1139 = 82.880% 
+
+Epoch[32/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[32/300] 	 Iter [101/145] 	 Loss: 0.003
+Epoch[32/300] 	 Validation Accuracy 945/1139 = 82.968% 
+
+Epoch[33/300] 	 Iter [  1/145] 	 Loss: 0.025
+Epoch[33/300] 	 Iter [101/145] 	 Loss: 0.086
+Epoch[33/300] 	 Validation Accuracy 948/1139 = 83.231% 
+
+Epoch[34/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[34/300] 	 Iter [101/145] 	 Loss: 0.006
+Epoch[34/300] 	 Validation Accuracy 953/1139 = 83.670% 
+
+Epoch[35/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[35/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[35/300] 	 Validation Accuracy 952/1139 = 83.582% 
+
+Epoch[36/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[36/300] 	 Iter [101/145] 	 Loss: 0.079
+Epoch[36/300] 	 Validation Accuracy 952/1139 = 83.582% 
+
+Epoch[37/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[37/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[37/300] 	 Validation Accuracy 953/1139 = 83.670% 
+
+Epoch[38/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[38/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[38/300] 	 Validation Accuracy 949/1139 = 83.319% 
+
+Epoch[39/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[39/300] 	 Iter [101/145] 	 Loss: 0.066
+Epoch[39/300] 	 Validation Accuracy 947/1139 = 83.143% 
+
+Epoch[40/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[40/300] 	 Iter [101/145] 	 Loss: 0.025
+Epoch[40/300] 	 Validation Accuracy 950/1139 = 83.406% 
+
+Epoch[41/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[41/300] 	 Iter [101/145] 	 Loss: 0.048
+Epoch[41/300] 	 Validation Accuracy 948/1139 = 83.231% 
+
+Epoch[42/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[42/300] 	 Iter [101/145] 	 Loss: 0.063
+Epoch[42/300] 	 Validation Accuracy 945/1139 = 82.968% 
+
+Epoch[43/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[43/300] 	 Iter [101/145] 	 Loss: 0.040
+Epoch[43/300] 	 Validation Accuracy 940/1139 = 82.529% 
+
+Epoch[44/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[44/300] 	 Iter [101/145] 	 Loss: 0.035
+Epoch[44/300] 	 Validation Accuracy 946/1139 = 83.055% 
+
+Epoch[45/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[45/300] 	 Iter [101/145] 	 Loss: 0.018
+Epoch[45/300] 	 Validation Accuracy 952/1139 = 83.582% 
+
+Epoch[46/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[46/300] 	 Iter [101/145] 	 Loss: 0.020
+Epoch[46/300] 	 Validation Accuracy 959/1139 = 84.197% 
+
+Epoch[47/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[47/300] 	 Iter [101/145] 	 Loss: 0.109
+Epoch[47/300] 	 Validation Accuracy 951/1139 = 83.494% 
+
+Epoch[48/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[48/300] 	 Iter [101/145] 	 Loss: 0.016
+Epoch[48/300] 	 Validation Accuracy 960/1139 = 84.284% 
+
+Epoch[49/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[49/300] 	 Iter [101/145] 	 Loss: 0.088
+Epoch[49/300] 	 Validation Accuracy 956/1139 = 83.933% 
+
+Epoch[50/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[50/300] 	 Iter [101/145] 	 Loss: 0.009
+Epoch[50/300] 	 Validation Accuracy 962/1139 = 84.460% 
+
+Epoch[51/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[51/300] 	 Iter [101/145] 	 Loss: 0.065
+Epoch[51/300] 	 Validation Accuracy 951/1139 = 83.494% 
+
+Epoch[52/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[52/300] 	 Iter [101/145] 	 Loss: 0.022
+Epoch[52/300] 	 Validation Accuracy 949/1139 = 83.319% 
+
+Epoch[53/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[53/300] 	 Iter [101/145] 	 Loss: 0.009
+Epoch[53/300] 	 Validation Accuracy 952/1139 = 83.582% 
+
+Epoch[54/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[54/300] 	 Iter [101/145] 	 Loss: 0.035
+Epoch[54/300] 	 Validation Accuracy 951/1139 = 83.494% 
+
+Epoch[55/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[55/300] 	 Iter [101/145] 	 Loss: 0.022
+Epoch[55/300] 	 Validation Accuracy 964/1139 = 84.636% 
+
+Epoch[56/300] 	 Iter [  1/145] 	 Loss: 0.495
+Epoch[56/300] 	 Iter [101/145] 	 Loss: 0.047
+Epoch[56/300] 	 Validation Accuracy 970/1139 = 85.162% 
+
+Epoch[57/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[57/300] 	 Iter [101/145] 	 Loss: 0.049
+Epoch[57/300] 	 Validation Accuracy 976/1139 = 85.689% 
+
+Epoch[58/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[58/300] 	 Iter [101/145] 	 Loss: 0.001
+Epoch[58/300] 	 Validation Accuracy 977/1139 = 85.777% 
+
+Epoch[59/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[59/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[59/300] 	 Validation Accuracy 977/1139 = 85.777% 
+
+Epoch[60/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[60/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[60/300] 	 Validation Accuracy 977/1139 = 85.777% 
+
+Epoch[61/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[61/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[61/300] 	 Validation Accuracy 977/1139 = 85.777% 
+
+Epoch[62/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[62/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[62/300] 	 Validation Accuracy 977/1139 = 85.777% 
+
+Epoch[63/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[63/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[63/300] 	 Validation Accuracy 977/1139 = 85.777% 
+
+Epoch[64/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[64/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[64/300] 	 Validation Accuracy 977/1139 = 85.777% 
+
+Epoch[65/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[65/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[65/300] 	 Validation Accuracy 977/1139 = 85.777% 
+
+Epoch[66/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[66/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[66/300] 	 Validation Accuracy 977/1139 = 85.777% 
+
+Epoch[67/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[67/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[67/300] 	 Validation Accuracy 977/1139 = 85.777% 
+
+Epoch[68/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[68/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[68/300] 	 Validation Accuracy 977/1139 = 85.777% 
+
+Epoch[69/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[69/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[69/300] 	 Validation Accuracy 977/1139 = 85.777% 
+
+Epoch[70/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[70/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[70/300] 	 Validation Accuracy 977/1139 = 85.777% 
+
+Epoch[71/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[71/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[71/300] 	 Validation Accuracy 977/1139 = 85.777% 
+
+Epoch[72/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[72/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[72/300] 	 Validation Accuracy 977/1139 = 85.777% 
+
+Epoch[73/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[73/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[73/300] 	 Validation Accuracy 978/1139 = 85.865% 
+
+Epoch[74/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[74/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[74/300] 	 Validation Accuracy 978/1139 = 85.865% 
+
+Epoch[75/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[75/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[75/300] 	 Validation Accuracy 978/1139 = 85.865% 
+
+Epoch[76/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[76/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[76/300] 	 Validation Accuracy 978/1139 = 85.865% 
+
+Epoch[77/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[77/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[77/300] 	 Validation Accuracy 978/1139 = 85.865% 
+
+Epoch[78/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[78/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[78/300] 	 Validation Accuracy 978/1139 = 85.865% 
+
+Epoch[79/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[79/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[79/300] 	 Validation Accuracy 978/1139 = 85.865% 
+
+Epoch[80/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[80/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[80/300] 	 Validation Accuracy 978/1139 = 85.865% 
+
+Epoch[81/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[81/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[81/300] 	 Validation Accuracy 978/1139 = 85.865% 
+
+Epoch[82/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[82/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[82/300] 	 Validation Accuracy 978/1139 = 85.865% 
+
+Epoch[83/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[83/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[83/300] 	 Validation Accuracy 978/1139 = 85.865% 
+
+Epoch[84/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[84/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[84/300] 	 Validation Accuracy 978/1139 = 85.865% 
+
+Epoch[85/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[85/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[85/300] 	 Validation Accuracy 978/1139 = 85.865% 
+
+Epoch[86/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[86/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[86/300] 	 Validation Accuracy 978/1139 = 85.865% 
+
+Epoch[87/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[87/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[87/300] 	 Validation Accuracy 978/1139 = 85.865% 
+
+Epoch[88/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[88/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[88/300] 	 Validation Accuracy 978/1139 = 85.865% 
+
+Epoch[89/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[89/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[89/300] 	 Validation Accuracy 978/1139 = 85.865% 
+
+Epoch[90/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[90/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[90/300] 	 Validation Accuracy 979/1139 = 85.953% 
+
+Epoch[91/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[91/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[91/300] 	 Validation Accuracy 979/1139 = 85.953% 
+
+Epoch[92/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[92/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[92/300] 	 Validation Accuracy 979/1139 = 85.953% 
+
+Epoch[93/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[93/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[93/300] 	 Validation Accuracy 979/1139 = 85.953% 
+
+Epoch[94/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[94/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[94/300] 	 Validation Accuracy 979/1139 = 85.953% 
+
+Epoch[95/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[95/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[95/300] 	 Validation Accuracy 979/1139 = 85.953% 
+
+Epoch[96/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[96/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[96/300] 	 Validation Accuracy 979/1139 = 85.953% 
+
+Epoch[97/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[97/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[97/300] 	 Validation Accuracy 979/1139 = 85.953% 
+
+Epoch[98/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[98/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[98/300] 	 Validation Accuracy 979/1139 = 85.953% 
+
+Epoch[99/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[99/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[99/300] 	 Validation Accuracy 979/1139 = 85.953% 
+
+Epoch[100/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[100/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[100/300] 	 Validation Accuracy 979/1139 = 85.953% 
+
+Epoch[101/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[101/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[101/300] 	 Validation Accuracy 979/1139 = 85.953% 
+
+Epoch[102/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[102/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[102/300] 	 Validation Accuracy 979/1139 = 85.953% 
+
+Epoch[103/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[103/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[103/300] 	 Validation Accuracy 980/1139 = 86.040% 
+
+Epoch[104/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[104/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[104/300] 	 Validation Accuracy 980/1139 = 86.040% 
+
+Epoch[105/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[105/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[105/300] 	 Validation Accuracy 980/1139 = 86.040% 
+
+Epoch[106/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[106/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[106/300] 	 Validation Accuracy 980/1139 = 86.040% 
+
+Epoch[107/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[107/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[107/300] 	 Validation Accuracy 980/1139 = 86.040% 
+
+Epoch[108/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[108/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[108/300] 	 Validation Accuracy 980/1139 = 86.040% 
+
+Epoch[109/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[109/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[109/300] 	 Validation Accuracy 980/1139 = 86.040% 
+
+Epoch[110/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[110/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[110/300] 	 Validation Accuracy 980/1139 = 86.040% 
+
+Epoch[111/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[111/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[111/300] 	 Validation Accuracy 980/1139 = 86.040% 
+
+Epoch[112/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[112/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[112/300] 	 Validation Accuracy 980/1139 = 86.040% 
+
+Epoch[113/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[113/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[113/300] 	 Validation Accuracy 980/1139 = 86.040% 
+
+Epoch[114/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[114/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[114/300] 	 Validation Accuracy 980/1139 = 86.040% 
+
+Epoch[115/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[115/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[115/300] 	 Validation Accuracy 980/1139 = 86.040% 
+
+Epoch[116/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[116/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[116/300] 	 Validation Accuracy 980/1139 = 86.040% 
+
+Epoch[117/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[117/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[117/300] 	 Validation Accuracy 980/1139 = 86.040% 
+
+Epoch[118/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[118/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[118/300] 	 Validation Accuracy 980/1139 = 86.040% 
+
+Epoch[119/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[119/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[119/300] 	 Validation Accuracy 980/1139 = 86.040% 
+
+Epoch[120/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[120/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[120/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[121/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[121/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[121/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[122/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[122/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[122/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[123/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[123/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[123/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[124/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[124/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[124/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[125/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[125/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[125/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[126/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[126/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[126/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[127/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[127/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[127/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[128/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[128/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[128/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[129/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[129/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[129/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[130/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[130/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[130/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[131/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[131/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[131/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[132/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[132/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[132/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[133/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[133/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[133/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[134/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[134/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[134/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[135/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[135/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[135/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[136/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[136/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[136/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[137/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[137/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[137/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[138/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[138/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[138/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[139/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[139/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[139/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[140/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[140/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[140/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[141/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[141/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[141/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[142/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[142/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[142/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[143/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[143/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[143/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[144/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[144/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[144/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[145/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[145/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[145/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[146/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[146/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[146/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[147/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[147/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[147/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[148/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[148/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[148/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[149/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[149/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[149/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[150/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[150/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[150/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[151/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[151/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[151/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[152/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[152/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[152/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[153/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[153/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[153/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[154/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[154/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[154/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[155/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[155/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[155/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[156/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[156/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[156/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[157/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[157/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[157/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[158/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[158/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[158/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[159/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[159/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[159/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[160/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[160/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[160/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[161/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[161/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[161/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[162/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[162/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[162/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[163/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[163/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[163/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[164/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[164/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[164/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[165/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[165/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[165/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[166/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[166/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[166/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[167/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[167/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[167/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[168/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[168/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[168/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[169/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[169/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[169/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[170/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[170/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[170/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[171/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[171/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[171/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[172/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[172/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[172/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[173/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[173/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[173/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[174/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[174/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[174/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[175/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[175/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[175/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[176/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[176/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[176/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[177/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[177/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[177/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[178/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[178/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[178/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[179/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[179/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[179/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[180/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[180/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[180/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[181/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[181/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[181/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[182/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[182/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[182/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[183/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[183/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[183/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[184/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[184/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[184/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[185/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[185/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[185/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[186/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[186/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[186/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[187/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[187/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[187/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[188/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[188/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[188/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[189/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[189/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[189/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[190/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[190/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[190/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[191/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[191/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[191/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[192/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[192/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[192/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[193/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[193/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[193/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[194/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[194/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[194/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[195/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[195/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[195/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[196/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[196/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[196/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[197/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[197/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[197/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[198/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[198/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[198/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[199/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[199/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[199/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[200/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[200/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[200/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[201/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[201/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[201/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[202/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[202/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[202/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[203/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[203/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[203/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[204/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[204/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[204/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[205/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[205/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[205/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[206/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[206/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[206/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[207/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[207/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[207/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[208/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[208/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[208/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[209/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[209/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[209/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[210/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[210/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[210/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[211/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[211/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[211/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[212/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[212/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[212/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[213/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[213/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[213/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[214/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[214/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[214/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[215/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[215/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[215/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[216/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[216/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[216/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[217/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[217/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[217/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[218/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[218/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[218/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[219/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[219/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[219/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[220/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[220/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[220/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[221/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[221/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[221/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[222/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[222/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[222/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[223/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[223/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[223/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[224/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[224/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[224/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[225/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[225/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[225/300] 	 Validation Accuracy 981/1139 = 86.128% 
+
+Epoch[226/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[226/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[226/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[227/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[227/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[227/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[228/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[228/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[228/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[229/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[229/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[229/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[230/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[230/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[230/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[231/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[231/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[231/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[232/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[232/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[232/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[233/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[233/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[233/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[234/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[234/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[234/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[235/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[235/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[235/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[236/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[236/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[236/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[237/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[237/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[237/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[238/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[238/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[238/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[239/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[239/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[239/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[240/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[240/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[240/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[241/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[241/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[241/300] 	 Validation Accuracy 983/1139 = 86.304% 
+
+Epoch[242/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[242/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[242/300] 	 Validation Accuracy 983/1139 = 86.304% 
+
+Epoch[243/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[243/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[243/300] 	 Validation Accuracy 983/1139 = 86.304% 
+
+Epoch[244/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[244/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[244/300] 	 Validation Accuracy 983/1139 = 86.304% 
+
+Epoch[245/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[245/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[245/300] 	 Validation Accuracy 983/1139 = 86.304% 
+
+Epoch[246/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[246/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[246/300] 	 Validation Accuracy 983/1139 = 86.304% 
+
+Epoch[247/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[247/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[247/300] 	 Validation Accuracy 983/1139 = 86.304% 
+
+Epoch[248/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[248/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[248/300] 	 Validation Accuracy 983/1139 = 86.304% 
+
+Epoch[249/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[249/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[249/300] 	 Validation Accuracy 983/1139 = 86.304% 
+
+Epoch[250/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[250/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[250/300] 	 Validation Accuracy 983/1139 = 86.304% 
+
+Epoch[251/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[251/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[251/300] 	 Validation Accuracy 983/1139 = 86.304% 
+
+Epoch[252/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[252/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[252/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[253/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[253/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[253/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[254/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[254/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[254/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[255/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[255/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[255/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[256/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[256/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[256/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[257/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[257/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[257/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[258/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[258/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[258/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[259/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[259/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[259/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[260/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[260/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[260/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[261/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[261/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[261/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[262/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[262/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[262/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[263/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[263/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[263/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[264/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[264/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[264/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[265/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[265/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[265/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[266/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[266/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[266/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[267/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[267/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[267/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[268/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[268/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[268/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[269/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[269/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[269/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[270/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[270/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[270/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[271/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[271/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[271/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[272/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[272/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[272/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[273/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[273/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[273/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[274/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[274/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[274/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[275/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[275/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[275/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[276/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[276/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[276/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[277/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[277/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[277/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[278/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[278/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[278/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[279/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[279/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[279/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[280/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[280/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[280/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[281/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[281/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[281/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[282/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[282/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[282/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[283/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[283/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[283/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[284/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[284/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[284/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[285/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[285/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[285/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[286/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[286/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[286/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[287/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[287/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[287/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[288/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[288/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[288/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[289/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[289/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[289/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[290/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[290/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[290/300] 	 Validation Accuracy 982/1139 = 86.216% 
+
+Epoch[291/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[291/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[291/300] 	 Validation Accuracy 983/1139 = 86.304% 
+
+Epoch[292/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[292/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[292/300] 	 Validation Accuracy 983/1139 = 86.304% 
+
+Epoch[293/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[293/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[293/300] 	 Validation Accuracy 983/1139 = 86.304% 
+
+Epoch[294/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[294/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[294/300] 	 Validation Accuracy 983/1139 = 86.304% 
+
+Epoch[295/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[295/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[295/300] 	 Validation Accuracy 983/1139 = 86.304% 
+
+Epoch[296/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[296/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[296/300] 	 Validation Accuracy 983/1139 = 86.304% 
+
+Epoch[297/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[297/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[297/300] 	 Validation Accuracy 983/1139 = 86.304% 
+
+Epoch[298/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[298/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[298/300] 	 Validation Accuracy 983/1139 = 86.304% 
+
+Epoch[299/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[299/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[299/300] 	 Validation Accuracy 983/1139 = 86.304% 
+
+Epoch[300/300] 	 Iter [  1/145] 	 Loss: 0.000
+Epoch[300/300] 	 Iter [101/145] 	 Loss: 0.000
+Epoch[300/300] 	 Validation Accuracy 983/1139 = 86.304% 
+
+Finished in 83.86435604095459
