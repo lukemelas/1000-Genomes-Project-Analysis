@@ -10,6 +10,7 @@ from train import train, validate
 
 from models.LogisticRegression import LogisticRegression
 from models.MLP import MLP
+from models.Experimental import ExperimentalModel
 
 import pdb
 
@@ -24,9 +25,9 @@ parser.add_argument('--data', metavar='DIR', default='../data/data_pca_1000comps
 parser.add_argument('--model', metavar='DIR', default=None, help='path to model, default: None')
 parser.add_argument('--epochs', metavar='N', type=int, default=300, help='number of epochs, default: 300')
 parser.add_argument('--savepath', metavar='DIR', default=None, help='directory to save model and logs')
-parser.add_argument('--test_size', metavar='float', default=0.33, help='fraction of training data to use as test')
+parser.add_argument('--val_size', metavar='float', default=0.2, help='fraction of data to use as val')
+parser.add_argument('--test_size', metavar='float', default=0.2, help='fraction of data to use as test')
 parser.add_argument('--print_freq', metavar='N', type=int, default=100, help='printing/logging frequency')
-parser.add_argument('--random_seed', metavar='N', type=int, default=42, help='random seed for train/test split')
 parser.add_argument('--cross_val_splits', metavar='N', type=int, default=1, help='number of times to cross-validate')
 parser.add_argument('-e', '--eval', dest='evaluate', action='store_true', help='evaluate and do not train, default: False')
 
@@ -35,14 +36,13 @@ def main():
     opt = parser.parse_args()
     use_gpu = torch.cuda.is_available()
 
-    # Logging
+    # Set up logging
     if opt.savepath == None:
         path = os.path.join('save', datetime.datetime.now().strftime("%m-%d-%H-%M-%S"))
     else:
         path = opt.savepath
     os.makedirs(path, exist_ok=True)
     logger = utils.Logger(path)
-
 
     # Cross validate 
     seeds = []
@@ -53,15 +53,18 @@ def main():
         logger.log('------------- SPLIT {} --------------\n'.format(i+1))
 
         # Generate random seed for train/test split
-        random_seed = 4 #random.randint(0,1000) if opt.cross_val_splits > 1 else opt.random_seed 
-        seeds.append(random_seed) 
+        random_seeds = (random.randint(0,10000), random.randint(0,10000))
+        seeds.append(random_seeds) 
 
         # Data
         time_data = time.time()
-        train_loader, val_loader, input_size, num_classes = get_dataloader(opt.data, opt.b, opt.test_size, random_seed)
+        train_loader, val_loader, input_size, num_classes = get_dataloader(opt.data, 
+                opt.b, opt.test_size, opt.val_size, random_seeds)
 
         # Model 
-        model = MLP(input_size, num_classes, opt.dp) # LogisticRegression(input_size, num_classes)
+        model = MLP(input_size, num_classes, opt.dp) 
+        #model = ExperimentalModel(input_size, num_classes, opt.dp)
+        #model = LogisticRegression(input_size, num_classes)
                 
         # Pretrained / Initialization
         if opt.model is not None and os.path.isfile(opt.model):
@@ -98,11 +101,11 @@ def main():
                 num_epochs=opt.epochs, print_freq=opt.print_freq, model_id=i)
             logger.log('Best accuracy: {:.2f}% \t Finished split {} in {:.2f}s\n'.format(
                 100 * best_acc, i+1, time.time() - start_time))
-            accuracies.append(acc)
+            accuracies.append(best_acc)
     
     # Log after training
     logger.log('Seeds: {}'.format(seeds), stdout=False)
-    logger.log('Accuracies: {}'.format(', '.join(accuracies)))
+    logger.log('Accuracies: {}'.format(accuracies))
 
 if __name__ == '__main__':
     print(' '.join(sys.argv))

@@ -8,7 +8,7 @@ from torch.utils.data import TensorDataset, DataLoader
 from sklearn.model_selection import train_test_split
 use_gpu = torch.cuda.is_available()
 
-def get_dataloader(filepath, batch_size, test_size=0.33, random_seed=42):
+def get_dataloader(filepath, batch_size, test_size=0.2, val_size=0.2, seed=[42,74]):
     '''Takes a filepath of standardized (!) PCA components as a numpy array'''
 
     # Load data
@@ -21,7 +21,8 @@ def get_dataloader(filepath, batch_size, test_size=0.33, random_seed=42):
     print('Loaded labels with shape: {}.'.format(labels.shape))
 
     # Test/val split
-    X_train, X_val, y_train, y_val = train_test_split(data, labels, test_size=0.33, random_state=42)
+    X, X_test, y, y_test = train_test_split(data, labels, test_size=test_size, random_state=seed[0])
+    X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=val_size, random_state=seed[1])
 
     # Torchify
     X_train, X_val = [torch.FloatTensor(s) for s in [X_train, X_val]]

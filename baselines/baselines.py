@@ -30,13 +30,15 @@ rf = RandomForestClassifier(n_estimators=100)
 gb = GradientBoostingClassifier(n_estimators=100)
 
 # Cross validation
-accuracy_lr = cross_val_score(lr, X, y, scoring='accuracy', cv = 3)
+accuracy_lr = cross_val_score(lr, X, y, scoring='accuracy', cv = 5)
 print('LR Accuracy: {:.2f}'.format(accuracy_lr.mean() * 100))
 
-accuracy_rf = cross_val_score(rf, X, y, scoring='accuracy', cv = 3)
+accuracy_rf = cross_val_score(rf, X, y, scoring='accuracy', cv = 5)
 print('RF Accuracy: {:.2f}'.format(accuracy_rf.mean() * 100))
 
-accuracy_gb = cross_val_score(gb, X, y, scoring='accuracy', cv = 3)
+accuracy_gb = cross_val_score(gb, X, y, scoring='accuracy', cv = 5)
 print('GB Accuracy: {:.2f}'.format(accuracy_gb.mean() * 100))
 
+# Save results
+torch.save({'LR': accuracy_lr, 'RF': accuracy_rf, 'GB': accuracy_gb}, 'baseline_results.pth')
 
