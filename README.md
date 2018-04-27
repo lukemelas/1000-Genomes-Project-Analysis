@@ -4,6 +4,7 @@ In this repository, we analyze the 1000 genomes project data.
 
 To download the data, run `download.sh`. To run our model, `cd` into the mlp folder. Run `python main.py -h` to see all available options.
 
+```
 usage: main.py [-h] [--lr N] [--lr_decay_factor N] [--lr_decay_patience N]
                [--lr_decay_cooldown N] [--b N] [--dp N] [--data DIR]
                [--model DIR] [--epochs N] [--savepath DIR] [--val_size float]
@@ -27,3 +28,4 @@ optional arguments:
   --print_freq N        printing/logging frequency
   --cross_val_splits N  number of times to cross-validate
   -e, --eval            evaluate and do not train, default: False
+```
