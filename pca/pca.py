@@ -10,7 +10,7 @@ from sklearn.decomposition import IncrementalPCA
 
 import pdb
 
-data_float = pickle.load(open('../data/data_all_float16.pkl', 'rb')) # a standardized numpy float16 array
+data_float = pickle.load(open('../data/data_all_norm.pkl', 'rb')) # a standardized numpy float16 array
 print('Data loaded.') 
 
 n = 200

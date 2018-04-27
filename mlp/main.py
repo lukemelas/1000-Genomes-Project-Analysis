@@ -15,20 +15,21 @@ from models.Experimental import ExperimentalModel
 import pdb
 
 parser = argparse.ArgumentParser(description='Genome Project')
-parser.add_argument('--lr', default=5e-3, type=float, metavar='N', help='learning rate, default: 2e-3')
-parser.add_argument('--lr_decay_factor',   type=float, default=0.99, metavar='N', help='lr decay, default: 0.99 (no decay)')
-parser.add_argument('--lr_decay_patience', type=int,   default=10,   metavar='N', help='lr decay patience, default: 10')
-parser.add_argument('--lr_decay_cooldown', type=int,   default=5,    metavar='N', help='lr decay cooldown, default: 5')
-parser.add_argument('--b', default=128, type=int, metavar='N', help='batch size, default: 16')
-parser.add_argument('--dp', default=0.50, type=float, metavar='N', help='dropout probability, default: 0.50')
+parser.add_argument('--lr', default=5e-3, type=float, metavar='N', help='learning rate, default=5e-3')
+parser.add_argument('--lr_decay_factor',   type=float, default=0.99, metavar='N', help='lr decay, default=0.99 (no decay)')
+parser.add_argument('--lr_decay_patience', type=int,   default=10,   metavar='N', help='lr decay patience, default=10')
+parser.add_argument('--lr_decay_cooldown', type=int,   default=5,    metavar='N', help='lr decay cooldown, default=5')
+parser.add_argument('--b', default=128, type=int, metavar='N', help='batch size, default=128')
+parser.add_argument('--dp', default=0.50, type=float, metavar='N', help='dropout probability, default=0.50')
 parser.add_argument('--data', metavar='DIR', default='../data/data_pca_1000comps.pkl', help='path to PCA data')
 parser.add_argument('--model', metavar='DIR', default=None, help='path to model, default: None')
-parser.add_argument('--epochs', metavar='N', type=int, default=600, help='number of epochs, default: 300')
+parser.add_argument('--epochs', metavar='N', type=int, default=600, help='number of epochs, default=600')
+parser.add_argument('--verbose', action='store_true', help='print more frequently')
 parser.add_argument('--savepath', metavar='DIR', default=None, help='directory to save model and logs')
-parser.add_argument('--val_size', metavar='float', default=0.2, help='fraction of data to use as val')
-parser.add_argument('--test_size', metavar='float', default=0.2, help='fraction of data to use as test')
-parser.add_argument('--print_freq', metavar='N', type=int, default=100, help='printing/logging frequency')
-parser.add_argument('--cross_val_splits', metavar='N', type=int, default=5, help='number of times to cross-validate')
+parser.add_argument('--val_size', metavar='float', default=0.2, help='fraction of data to use as val, default=0.2')
+parser.add_argument('--test_size', metavar='float', default=0.2, help='fraction of data to use as test, default=0.2')
+parser.add_argument('--print_freq', metavar='N', type=int, default=100, help='printing/logging frequency, default=100')
+parser.add_argument('--cross_val_splits', metavar='N', type=int, default=5, help='number of times to cross-validate, default=5')
 parser.add_argument('-e', '--eval', dest='evaluate', action='store_true', help='evaluate and do not train, default: False')
 
 def main():
@@ -65,7 +66,9 @@ def main():
         model = MLP(input_size, num_classes, opt.dp) 
         #model = ExperimentalModel(input_size, num_classes, opt.dp)
         #model = LogisticRegression(input_size, num_classes)
-                
+        
+        print(model)
+
         # Pretrained / Initialization
         if opt.model is not None and os.path.isfile(opt.model):
             model.load_state_dict(torch.load(opt.model))
