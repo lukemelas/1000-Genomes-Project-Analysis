@@ -20,8 +20,10 @@ parser.add_argument('--lr_decay_factor',   type=float, default=0.99, metavar='N'
 parser.add_argument('--lr_decay_patience', type=int,   default=10,   metavar='N', help='lr decay patience, default=10')
 parser.add_argument('--lr_decay_cooldown', type=int,   default=5,    metavar='N', help='lr decay cooldown, default=5')
 parser.add_argument('--b', default=128, type=int, metavar='N', help='batch size, default=128')
+parser.add_argument('--wd', default=0, type=float, metavar='N', help='weight decay, default=0')
 parser.add_argument('--dp', default=0.50, type=float, metavar='N', help='dropout probability, default=0.50')
-parser.add_argument('--data', metavar='DIR', default='../data/data_pca_1000comps.pkl', help='path to PCA data')
+parser.add_argument('--arch', default='MLP', help='which model to use: MLP|Exp|LogReg, default=MLP')
+parser.add_argument('--data', metavar='DIR', default='../data/data_pca_300comps.pkl', help='path to PCA data')
 parser.add_argument('--model', metavar='DIR', default=None, help='path to model, default: None')
 parser.add_argument('--epochs', metavar='N', type=int, default=600, help='number of epochs, default=600')
 parser.add_argument('--verbose', action='store_true', help='print more frequently')
@@ -63,9 +65,14 @@ def main():
                 opt.b, opt.test_size, opt.val_size, random_seeds)
 
         # Model 
-        model = MLP(input_size, num_classes, opt.dp) 
-        #model = ExperimentalModel(input_size, num_classes, opt.dp)
-        #model = LogisticRegression(input_size, num_classes)
+        arch = opt.arch.lower()
+        assert arch in ['logreg', 'mlp', 'exp']
+        if arch == 'logreg': 
+            model = LogisticRegression(input_size, num_classes)
+        elif arch == 'mlp':
+            model = MLP(input_size, num_classes, opt.dp) 
+        elif arch == 'exp': 
+            model = ExperimentalModel(input_size, num_classes, opt.dp)
         
         print(model)
 
@@ -81,7 +88,7 @@ def main():
 
         # Loss function and optimizer
         criterion = nn.CrossEntropyLoss(size_average=False)
-        optimizer = torch.optim.Adam(filter(lambda p: p.requires_grad, model.parameters()), lr=opt.lr) 
+        optimizer = torch.optim.Adam(filter(lambda p: p.requires_grad, model.parameters()), lr=opt.lr, weight_decay=opt.wd) 
         scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'max', patience=opt.lr_decay_patience, 
                         factor=opt.lr_decay_factor, verbose=True, cooldown=opt.lr_decay_cooldown)
 
