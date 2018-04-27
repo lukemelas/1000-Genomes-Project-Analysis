@@ -21,6 +21,10 @@ def train(model, train_loader, val_loader, optimizer, criterion, logger, num_epo
     best_acc = 0
     for epoch in range(num_epochs):
 
+        results = []
+        results.append([])
+        results.append([])
+
         # One epoch of training
         total = 0
         total_loss = 0
@@ -35,6 +39,9 @@ def train(model, train_loader, val_loader, optimizer, criterion, logger, num_epo
             total_loss += loss.data[0]
             total += label.numel()
 
+            results[0].append(output)
+            results[1].append(label)
+
             logger.log('Epoch[{}/{}] \t Iter [{:>3}/{:>3}] \t Loss: {:.3f}'.format(
                 epoch + 1, num_epochs, (i+1), len(train_loader), total_loss/total), stdout=False)
 
@@ -47,6 +54,7 @@ def train(model, train_loader, val_loader, optimizer, criterion, logger, num_epo
             best_acc = acc
             logger.save_model(model.state_dict(), 'model_{}.pth'.format(model_id))
             logger.log('Best accuracy: {:.3f}'.format(best_acc), stdout=False)
+            logger.save_model(results, 'results_{}.pth'.format(model_id))
 
         # Log
         logger.log('Epoch[{}/{}] \t Validation Accuracy {}/{} = {:.3f}% \t Best Accuracy: {:.3f}'.format(

@@ -27,12 +27,14 @@ parser.add_argument('--data', metavar='DIR', default='../data/data_pca_300comps.
 parser.add_argument('--model', metavar='DIR', default=None, help='path to model, default: None')
 parser.add_argument('--epochs', metavar='N', type=int, default=600, help='number of epochs, default=600')
 parser.add_argument('--verbose', action='store_true', help='print more frequently')
+parser.add_argument('--features', metavar='N', type=int, default=-1, help='number of features to use, default=-1 (all)')
 parser.add_argument('--savepath', metavar='DIR', default=None, help='directory to save model and logs')
 parser.add_argument('--val_size', metavar='float', default=0.2, help='fraction of data to use as val, default=0.2')
 parser.add_argument('--test_size', metavar='float', default=0.2, help='fraction of data to use as test, default=0.2')
 parser.add_argument('--print_freq', metavar='N', type=int, default=100, help='printing/logging frequency, default=100')
 parser.add_argument('--cross_val_splits', metavar='N', type=int, default=5, help='number of times to cross-validate, default=5')
 parser.add_argument('-e', '--eval', dest='evaluate', action='store_true', help='evaluate and do not train, default: False')
+parser.add_argument('-t', '--test', dest='test', action='store_true', help='evaluate on the test set after training, default: False')
 
 def main():
     global opt
@@ -61,7 +63,7 @@ def main():
 
         # Data
         time_data = time.time()
-        train_loader, val_loader, input_size, num_classes = get_dataloader(opt.data, 
+        train_loader, val_loader, test_loader, input_size, num_classes = get_dataloader(opt.data, 
                 opt.b, opt.test_size, opt.val_size, random_seeds)
 
         # Model 
@@ -73,7 +75,6 @@ def main():
             model = MLP(input_size, num_classes, opt.dp) 
         elif arch == 'exp': 
             model = ExperimentalModel(input_size, num_classes, opt.dp)
-        
         print(model)
 
         # Pretrained / Initialization
@@ -102,20 +103,32 @@ def main():
             assert opt.model != None, 'no pretrained model to evaluate'
             total_correct, total = validate(model, val_loader, criterion)
             logger.log('Accuracy: {:.3f} \t Total correct: {} \t Total: {}'.format(
-                total/total_correct, total_correct, total))
+                total_correct/total, total_correct, total))
             return 
         # Or train model
         else:
             start_time = time.time()
             best_acc = train(model, train_loader, val_loader, optimizer, criterion, logger, 
                 num_epochs=opt.epochs, print_freq=opt.print_freq, model_id=i)
-            logger.log('Best accuracy: {:.2f}% \t Finished split {} in {:.2f}s\n'.format(
+            logger.log('Best train accuracy: {:.2f}% \t Finished split {} in {:.2f}s\n'.format(
                 100 * best_acc, i+1, time.time() - start_time))
             accuracies.append(best_acc)
+
+        # Optionally also test on test set
+        if opt.test:
+            best_model_path = os.path.join(path, 'model_{}.pth'.format(i))
+            model.load_state_dict(torch.load(best_model_path)) # load best model
+            total_correct, total = validate(model, val_loader, criterion) # check val set
+            logger.log('Val Accuracy: {:.3f} \t Total correct: {} \t Total: {}'.format(
+                total_correct/total, total_correct, total))
+            total_correct, total = validate(model, test_loader, criterion) # run test set
+            logger.log('Test Accuracy: {:.3f} \t Total correct: {} \t Total: {}\n'.format(
+                total_correct/total, total_correct, total))
+            
     
     # Log after training
-    logger.log('Seeds: {}'.format(seeds), stdout=False)
-    logger.log('Accuracies: {}'.format(accuracies))
+    logger.log('Training Seeds: {}'.format(seeds), stdout=False)
+    logger.log('Training Accuracies: {}'.format(accuracies))
 
 if __name__ == '__main__':
     print(' '.join(sys.argv))
