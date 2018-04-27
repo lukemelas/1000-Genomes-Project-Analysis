@@ -10,11 +10,11 @@ from sklearn.decomposition import IncrementalPCA
 
 import pdb
 
-data_float = pickle.load(open('data/data_scaled_float16.pkl', 'rb')) # a standardized numpy float16 array
+data_float = pickle.load(open('../data/data_all_float16.pkl', 'rb')) # a standardized numpy float16 array
 print('Data loaded.') 
 
-n = 10000
-ipca = IncrementalPCA(n_components=n, batch_size=20000)
+n = 200
+ipca = IncrementalPCA(n_components=n, batch_size=2000)
 ipca.fit(data_float)
 print('IncrementalPCA fitted.')
 

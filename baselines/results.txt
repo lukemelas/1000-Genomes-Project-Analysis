@@ -1,0 +1,16 @@
+------------------ N = 1000 ---------------------
+Data with n=1000 shape:  (3450, 1000)
+Super pop labels shape:  (3450,) [3 3 3 ... 4 4 4]
+Pop labels shape:  (3450,) [ 8  8  8 ... 21 21 21]
+LR Accuracy: 62.97
+RF Accuracy: 94.73
+GB Accuracy: 93.49
+
+
+------------------ N = 300 ----------------------
+Data with n=300 shape:  (3450, 300)
+Super pop labels shape:  (3450,) [3 3 3 ... 4 4 4]
+Pop labels shape:  (3450,) [ 8  8  8 ... 21 21 21]
+LR Accuracy: 78.97
+RF Accuracy: 95.16
+GB Accuracy: 93.56

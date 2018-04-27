@@ -10,7 +10,7 @@ from sklearn.model_selection import cross_val_score
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 
 # Load PCA with n=1000
-data_new = pickle.load(open('data/data_pca_1000comps.pkl','rb'))
+data_new = pickle.load(open('data/data_pca_300comps.pkl','rb'))
 print('Data with n=1000 shape: ', data_new.shape)
 
 # Load labels (super-populations and populations)
@@ -40,5 +40,5 @@ accuracy_gb = cross_val_score(gb, X, y, scoring='accuracy', cv = 5)
 print('GB Accuracy: {:.2f}'.format(accuracy_gb.mean() * 100))
 
 # Save results
-torch.save({'LR': accuracy_lr, 'RF': accuracy_rf, 'GB': accuracy_gb}, 'baseline_results.pth')
+torch.save({'LR': accuracy_lr, 'RF': accuracy_rf, 'GB': accuracy_gb}, 'results_baselines_300comps.pth')
 
