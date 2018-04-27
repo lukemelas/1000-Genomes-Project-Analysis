@@ -17,8 +17,7 @@ def validate(model, val_loader, criterion):
         total += label.numel()
     return total_correct, total
 
-def train(model, train_loader, val_loader, optimizer, criterion, logger, num_epochs=30, print_freq=50):
-    accs = []
+def train(model, train_loader, val_loader, optimizer, criterion, logger, num_epochs=30, print_freq=50, model_id=1):
     best_acc = 0
     for epoch in range(num_epochs):
 
@@ -36,23 +35,23 @@ def train(model, train_loader, val_loader, optimizer, criterion, logger, num_epo
             total_loss += loss.data[0]
             total += label.numel()
 
-            if i % print_freq == 0:
-                logger.log('Epoch[{}/{}] \t Iter [{:>3}/{:>3}] \t Loss: {:.3f}'.format(
-                    epoch + 1, num_epochs, (i+1), len(train_loader), total_loss/total))
+            logger.log('Epoch[{}/{}] \t Iter [{:>3}/{:>3}] \t Loss: {:.3f}'.format(
+                epoch + 1, num_epochs, (i+1), len(train_loader), total_loss/total), stdout=False)
 
         # One epoch of validation
         total_correct, total = validate(model, val_loader, criterion)
         acc = total_correct / total
-        accs.append(acc)
-        logger.log('Epoch[{}/{}] \t Validation Accuracy {}/{} = {:.3f}% \n'.format(
-            epoch + 1, num_epochs, total_correct, total, 100 * acc))
 
         # Save best model
-        if epoch % 20 == 1 and acc > best_acc:
+        if acc > best_acc:
             best_acc = acc
-            logger.save_model(model.state_dict())
+            logger.save_model(model.state_dict(), 'model_{}.pth'.format(model_id))
+            logger.log('Best accuracy: {:.3f}'.format(best_acc), stdout=False)
 
-    logger.log('Best accuracy: {:.3f}'.format(best_acc))
-    return accs
+        # Log
+        logger.log('Epoch[{}/{}] \t Validation Accuracy {}/{} = {:.3f}% \t Best Accuracy: {:.3f}'.format(
+            epoch + 1, num_epochs, total_correct, total, 100 * acc, best_acc), stdout=(epoch % print_freq == 0))
+
+    return best_acc
 
 

@@ -19,6 +19,6 @@ class Logger():
             if stdout:
                 print(info)
 
-    def save_model(self, model_dict):
-        torch.save(model_dict, os.path.join(self.path, 'model.pkl'))
+    def save_model(self, model_dict, model_name='model.pkl'):
+        torch.save(model_dict, os.path.join(self.path, model_name))
 
