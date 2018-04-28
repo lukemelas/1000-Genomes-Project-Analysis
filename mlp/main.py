@@ -22,6 +22,7 @@ parser.add_argument('--lr_decay_factor',   type=float, default=0.99, metavar='N'
 parser.add_argument('--lr_decay_patience', type=int,   default=10,   metavar='N', help='lr decay patience, default=10')
 parser.add_argument('--lr_decay_cooldown', type=int,   default=5,    metavar='N', help='lr decay cooldown, default=5')
 parser.add_argument('--b', default=128, type=int, metavar='N', help='batch size, default=128')
+parser.add_argument('--id', default=0, type=int, metavar='N', help='identified for the run, default=0')
 parser.add_argument('--wd', default=0, type=float, metavar='N', help='weight decay, default=0')
 parser.add_argument('--dp', default=0.50, type=float, metavar='N', help='dropout probability, default=0.50')
 parser.add_argument('--arch', default='MLP', help='which model to use: MLP|Exp|LogReg, default=MLP')
@@ -153,6 +154,7 @@ def main():
     # Log after training
     logger.log('Val Accuracies: {}'.format(val_accuracies))
     logger.log('Test Accuracies: {}'.format(test_accuracies))
+    logger.log('Run id: {} \t Test Accuracies: {}'.format(opt.id, test_accuracies))
 
 if __name__ == '__main__':
     print(' '.join(sys.argv))

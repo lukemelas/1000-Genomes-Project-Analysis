@@ -1,0 +1,740 @@
+main.py -t --lr 1e-1 --wd 0.0 --dp 0.5 --id 101
+
+Loaded data with shape: (3450, 315349).
+Loaded labels with shape: (3450,).
+Data loaded in 7.8s
+
+------------- SPLIT 1 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Initialized model from scratch.
+Epoch[1/600] 	 Validation Accuracy 175/275 = 63.636% 	 Best Accuracy: 0.636
+Epoch[101/600] 	 Validation Accuracy 239/275 = 86.909% 	 Best Accuracy: 0.924
+Epoch[201/600] 	 Validation Accuracy 249/275 = 90.545% 	 Best Accuracy: 0.938
+Epoch[301/600] 	 Validation Accuracy 246/275 = 89.455% 	 Best Accuracy: 0.938
+Epoch[401/600] 	 Validation Accuracy 237/275 = 86.182% 	 Best Accuracy: 0.938
+Epoch[501/600] 	 Validation Accuracy 243/275 = 88.364% 	 Best Accuracy: 0.938
+Best train accuracy: 93.82% 	 Finished split 1 in 19.69s
+
+Val Accuracy: 0.938 	 Total correct: 258 	 Total: 275
+Test Accuracy: 0.917 	 Total correct: 642 	 Total: 700
+
+------------- SPLIT 2 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Epoch[1/600] 	 Validation Accuracy 187/276 = 67.754% 	 Best Accuracy: 0.678
+Epoch[101/600] 	 Validation Accuracy 252/276 = 91.304% 	 Best Accuracy: 0.917
+Epoch[201/600] 	 Validation Accuracy 237/276 = 85.870% 	 Best Accuracy: 0.917
+Epoch[301/600] 	 Validation Accuracy 223/276 = 80.797% 	 Best Accuracy: 0.917
+Epoch[401/600] 	 Validation Accuracy 225/276 = 81.522% 	 Best Accuracy: 0.917
+Epoch[501/600] 	 Validation Accuracy 220/276 = 79.710% 	 Best Accuracy: 0.917
+Best train accuracy: 91.67% 	 Finished split 2 in 19.96s
+
+Val Accuracy: 0.917 	 Total correct: 253 	 Total: 276
+Test Accuracy: 0.888 	 Total correct: 617 	 Total: 695
+
+------------- SPLIT 3 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Epoch[1/600] 	 Validation Accuracy 173/277 = 62.455% 	 Best Accuracy: 0.625
+Epoch[101/600] 	 Validation Accuracy 246/277 = 88.809% 	 Best Accuracy: 0.924
+Epoch[201/600] 	 Validation Accuracy 245/277 = 88.448% 	 Best Accuracy: 0.935
+Epoch[301/600] 	 Validation Accuracy 236/277 = 85.199% 	 Best Accuracy: 0.935
+Epoch[401/600] 	 Validation Accuracy 242/277 = 87.365% 	 Best Accuracy: 0.935
+Epoch[501/600] 	 Validation Accuracy 248/277 = 89.531% 	 Best Accuracy: 0.935
+Best train accuracy: 93.50% 	 Finished split 3 in 19.46s
+
+Val Accuracy: 0.935 	 Total correct: 259 	 Total: 277
+Test Accuracy: 0.907 	 Total correct: 625 	 Total: 689
+
+------------- SPLIT 4 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Epoch[1/600] 	 Validation Accuracy 182/277 = 65.704% 	 Best Accuracy: 0.657
+Epoch[101/600] 	 Validation Accuracy 247/277 = 89.170% 	 Best Accuracy: 0.903
+Epoch[201/600] 	 Validation Accuracy 250/277 = 90.253% 	 Best Accuracy: 0.913
+Epoch[301/600] 	 Validation Accuracy 239/277 = 86.282% 	 Best Accuracy: 0.913
+Epoch[401/600] 	 Validation Accuracy 236/277 = 85.199% 	 Best Accuracy: 0.913
+Epoch[501/600] 	 Validation Accuracy 226/277 = 81.588% 	 Best Accuracy: 0.913
+Best train accuracy: 91.34% 	 Finished split 4 in 19.90s
+
+Val Accuracy: 0.913 	 Total correct: 253 	 Total: 277
+Test Accuracy: 0.909 	 Total correct: 623 	 Total: 685
+
+------------- SPLIT 5 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Epoch[1/600] 	 Validation Accuracy 199/277 = 71.841% 	 Best Accuracy: 0.718
+Epoch[101/600] 	 Validation Accuracy 233/277 = 84.116% 	 Best Accuracy: 0.910
+Epoch[201/600] 	 Validation Accuracy 233/277 = 84.116% 	 Best Accuracy: 0.910
+Epoch[301/600] 	 Validation Accuracy 238/277 = 85.921% 	 Best Accuracy: 0.910
+Epoch[401/600] 	 Validation Accuracy 240/277 = 86.643% 	 Best Accuracy: 0.910
+Epoch[501/600] 	 Validation Accuracy 241/277 = 87.004% 	 Best Accuracy: 0.910
+Best train accuracy: 90.97% 	 Finished split 5 in 19.94s
+
+Val Accuracy: 0.910 	 Total correct: 252 	 Total: 277
+Test Accuracy: 0.907 	 Total correct: 618 	 Total: 681
+
+Val Accuracies: [0.9381818181818182, 0.9166666666666666, 0.9350180505415162, 0.9133574007220217, 0.9097472924187726]
+Test Accuracies: [0.9171428571428571, 0.8877697841726618, 0.9071117561683599, 0.9094890510948905, 0.9074889867841409]
+Run id: 101 	 Test Accuracies: [0.9171428571428571, 0.8877697841726618, 0.9071117561683599, 0.9094890510948905, 0.9074889867841409]
+main.py -t --lr 1e-2 --wd 0.0 --dp 0.5 --id 102
+
+Loaded data with shape: (3450, 315349).
+Loaded labels with shape: (3450,).
+Data loaded in 7.8s
+
+------------- SPLIT 1 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Initialized model from scratch.
+Epoch[1/600] 	 Validation Accuracy 222/275 = 80.727% 	 Best Accuracy: 0.807
+Epoch[101/600] 	 Validation Accuracy 254/275 = 92.364% 	 Best Accuracy: 0.931
+Epoch[201/600] 	 Validation Accuracy 252/275 = 91.636% 	 Best Accuracy: 0.942
+Epoch[301/600] 	 Validation Accuracy 252/275 = 91.636% 	 Best Accuracy: 0.942
+Epoch[401/600] 	 Validation Accuracy 247/275 = 89.818% 	 Best Accuracy: 0.942
+Epoch[501/600] 	 Validation Accuracy 244/275 = 88.727% 	 Best Accuracy: 0.942
+Best train accuracy: 94.18% 	 Finished split 1 in 20.11s
+
+Val Accuracy: 0.942 	 Total correct: 259 	 Total: 275
+Test Accuracy: 0.914 	 Total correct: 640 	 Total: 700
+
+------------- SPLIT 2 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Epoch[1/600] 	 Validation Accuracy 208/276 = 75.362% 	 Best Accuracy: 0.754
+Epoch[101/600] 	 Validation Accuracy 251/276 = 90.942% 	 Best Accuracy: 0.928
+Epoch[201/600] 	 Validation Accuracy 244/276 = 88.406% 	 Best Accuracy: 0.928
+Epoch[301/600] 	 Validation Accuracy 245/276 = 88.768% 	 Best Accuracy: 0.928
+Epoch[401/600] 	 Validation Accuracy 239/276 = 86.594% 	 Best Accuracy: 0.928
+Epoch[501/600] 	 Validation Accuracy 248/276 = 89.855% 	 Best Accuracy: 0.928
+Best train accuracy: 93.48% 	 Finished split 2 in 19.81s
+
+Val Accuracy: 0.935 	 Total correct: 258 	 Total: 276
+Test Accuracy: 0.932 	 Total correct: 648 	 Total: 695
+
+------------- SPLIT 3 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Epoch[1/600] 	 Validation Accuracy 209/277 = 75.451% 	 Best Accuracy: 0.755
+Epoch[101/600] 	 Validation Accuracy 257/277 = 92.780% 	 Best Accuracy: 0.928
+Epoch[201/600] 	 Validation Accuracy 255/277 = 92.058% 	 Best Accuracy: 0.939
+Epoch[301/600] 	 Validation Accuracy 246/277 = 88.809% 	 Best Accuracy: 0.946
+Epoch[401/600] 	 Validation Accuracy 250/277 = 90.253% 	 Best Accuracy: 0.946
+Epoch[501/600] 	 Validation Accuracy 249/277 = 89.892% 	 Best Accuracy: 0.946
+Best train accuracy: 94.58% 	 Finished split 3 in 19.80s
+
+Val Accuracy: 0.946 	 Total correct: 262 	 Total: 277
+Test Accuracy: 0.917 	 Total correct: 632 	 Total: 689
+
+------------- SPLIT 4 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Epoch[1/600] 	 Validation Accuracy 194/277 = 70.036% 	 Best Accuracy: 0.700
+Epoch[101/600] 	 Validation Accuracy 249/277 = 89.892% 	 Best Accuracy: 0.913
+Epoch[201/600] 	 Validation Accuracy 244/277 = 88.087% 	 Best Accuracy: 0.928
+Epoch[301/600] 	 Validation Accuracy 245/277 = 88.448% 	 Best Accuracy: 0.931
+Epoch[401/600] 	 Validation Accuracy 245/277 = 88.448% 	 Best Accuracy: 0.931
+Epoch[501/600] 	 Validation Accuracy 253/277 = 91.336% 	 Best Accuracy: 0.931
+Best train accuracy: 93.14% 	 Finished split 4 in 19.73s
+
+Val Accuracy: 0.931 	 Total correct: 258 	 Total: 277
+Test Accuracy: 0.902 	 Total correct: 618 	 Total: 685
+
+------------- SPLIT 5 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Epoch[1/600] 	 Validation Accuracy 209/277 = 75.451% 	 Best Accuracy: 0.755
+Epoch[101/600] 	 Validation Accuracy 245/277 = 88.448% 	 Best Accuracy: 0.906
+Epoch[201/600] 	 Validation Accuracy 244/277 = 88.087% 	 Best Accuracy: 0.917
+Epoch[301/600] 	 Validation Accuracy 243/277 = 87.726% 	 Best Accuracy: 0.921
+Epoch[401/600] 	 Validation Accuracy 239/277 = 86.282% 	 Best Accuracy: 0.921
+Epoch[501/600] 	 Validation Accuracy 241/277 = 87.004% 	 Best Accuracy: 0.921
+Best train accuracy: 92.06% 	 Finished split 5 in 19.92s
+
+Val Accuracy: 0.921 	 Total correct: 255 	 Total: 277
+Test Accuracy: 0.925 	 Total correct: 630 	 Total: 681
+
+Val Accuracies: [0.9418181818181818, 0.9347826086956522, 0.9458483754512635, 0.9314079422382672, 0.9205776173285198]
+Test Accuracies: [0.9142857142857143, 0.9323741007194245, 0.9172714078374455, 0.9021897810218978, 0.9251101321585903]
+Run id: 102 	 Test Accuracies: [0.9142857142857143, 0.9323741007194245, 0.9172714078374455, 0.9021897810218978, 0.9251101321585903]
+main.py -t --lr 1e-3 --wd 0.0 --dp 0.5 --epochs 750 --id 103
+
+Loaded data with shape: (3450, 315349).
+Loaded labels with shape: (3450,).
+Data loaded in 7.9s
+
+------------- SPLIT 1 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Initialized model from scratch.
+Epoch[1/750] 	 Validation Accuracy 144/275 = 52.364% 	 Best Accuracy: 0.524
+Epoch[101/750] 	 Validation Accuracy 252/275 = 91.636% 	 Best Accuracy: 0.935
+Epoch[201/750] 	 Validation Accuracy 257/275 = 93.455% 	 Best Accuracy: 0.938
+Epoch[301/750] 	 Validation Accuracy 250/275 = 90.909% 	 Best Accuracy: 0.942
+Epoch[401/750] 	 Validation Accuracy 248/275 = 90.182% 	 Best Accuracy: 0.942
+Epoch[501/750] 	 Validation Accuracy 253/275 = 92.000% 	 Best Accuracy: 0.945
+Epoch[601/750] 	 Validation Accuracy 251/275 = 91.273% 	 Best Accuracy: 0.945
+Epoch[701/750] 	 Validation Accuracy 254/275 = 92.364% 	 Best Accuracy: 0.953
+Best train accuracy: 95.27% 	 Finished split 1 in 24.50s
+
+Val Accuracy: 0.953 	 Total correct: 262 	 Total: 275
+Test Accuracy: 0.933 	 Total correct: 653 	 Total: 700
+
+------------- SPLIT 2 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Epoch[1/750] 	 Validation Accuracy 144/276 = 52.174% 	 Best Accuracy: 0.522
+Epoch[101/750] 	 Validation Accuracy 251/276 = 90.942% 	 Best Accuracy: 0.920
+Epoch[201/750] 	 Validation Accuracy 258/276 = 93.478% 	 Best Accuracy: 0.938
+Epoch[301/750] 	 Validation Accuracy 256/276 = 92.754% 	 Best Accuracy: 0.942
+Epoch[401/750] 	 Validation Accuracy 257/276 = 93.116% 	 Best Accuracy: 0.942
+Epoch[501/750] 	 Validation Accuracy 254/276 = 92.029% 	 Best Accuracy: 0.949
+Epoch[601/750] 	 Validation Accuracy 247/276 = 89.493% 	 Best Accuracy: 0.949
+Epoch[701/750] 	 Validation Accuracy 255/276 = 92.391% 	 Best Accuracy: 0.949
+Best train accuracy: 94.93% 	 Finished split 2 in 25.16s
+
+Val Accuracy: 0.949 	 Total correct: 262 	 Total: 276
+Test Accuracy: 0.940 	 Total correct: 653 	 Total: 695
+
+------------- SPLIT 3 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Epoch[1/750] 	 Validation Accuracy 118/277 = 42.599% 	 Best Accuracy: 0.426
+Epoch[101/750] 	 Validation Accuracy 240/277 = 86.643% 	 Best Accuracy: 0.895
+Epoch[201/750] 	 Validation Accuracy 249/277 = 89.892% 	 Best Accuracy: 0.910
+Epoch[301/750] 	 Validation Accuracy 246/277 = 88.809% 	 Best Accuracy: 0.924
+Epoch[401/750] 	 Validation Accuracy 248/277 = 89.531% 	 Best Accuracy: 0.928
+Epoch[501/750] 	 Validation Accuracy 249/277 = 89.892% 	 Best Accuracy: 0.928
+Epoch[601/750] 	 Validation Accuracy 247/277 = 89.170% 	 Best Accuracy: 0.935
+Epoch[701/750] 	 Validation Accuracy 252/277 = 90.975% 	 Best Accuracy: 0.935
+Best train accuracy: 93.50% 	 Finished split 3 in 24.57s
+
+Val Accuracy: 0.935 	 Total correct: 259 	 Total: 277
+Test Accuracy: 0.919 	 Total correct: 633 	 Total: 689
+
+------------- SPLIT 4 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Epoch[1/750] 	 Validation Accuracy 142/277 = 51.264% 	 Best Accuracy: 0.513
+Epoch[101/750] 	 Validation Accuracy 245/277 = 88.448% 	 Best Accuracy: 0.903
+Epoch[201/750] 	 Validation Accuracy 247/277 = 89.170% 	 Best Accuracy: 0.910
+Epoch[301/750] 	 Validation Accuracy 250/277 = 90.253% 	 Best Accuracy: 0.921
+Epoch[401/750] 	 Validation Accuracy 253/277 = 91.336% 	 Best Accuracy: 0.921
+Epoch[501/750] 	 Validation Accuracy 250/277 = 90.253% 	 Best Accuracy: 0.921
+Epoch[601/750] 	 Validation Accuracy 253/277 = 91.336% 	 Best Accuracy: 0.928
+Epoch[701/750] 	 Validation Accuracy 247/277 = 89.170% 	 Best Accuracy: 0.931
+Best train accuracy: 93.14% 	 Finished split 4 in 24.63s
+
+Val Accuracy: 0.931 	 Total correct: 258 	 Total: 277
+Test Accuracy: 0.943 	 Total correct: 646 	 Total: 685
+
+------------- SPLIT 5 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Epoch[1/750] 	 Validation Accuracy 126/277 = 45.487% 	 Best Accuracy: 0.455
+Epoch[101/750] 	 Validation Accuracy 249/277 = 89.892% 	 Best Accuracy: 0.917
+Epoch[201/750] 	 Validation Accuracy 251/277 = 90.614% 	 Best Accuracy: 0.928
+Epoch[301/750] 	 Validation Accuracy 254/277 = 91.697% 	 Best Accuracy: 0.931
+Epoch[401/750] 	 Validation Accuracy 256/277 = 92.419% 	 Best Accuracy: 0.939
+Epoch[501/750] 	 Validation Accuracy 255/277 = 92.058% 	 Best Accuracy: 0.939
+Epoch[601/750] 	 Validation Accuracy 258/277 = 93.141% 	 Best Accuracy: 0.939
+Epoch[701/750] 	 Validation Accuracy 253/277 = 91.336% 	 Best Accuracy: 0.942
+Best train accuracy: 94.22% 	 Finished split 5 in 24.64s
+
+Val Accuracy: 0.942 	 Total correct: 261 	 Total: 277
+Test Accuracy: 0.938 	 Total correct: 639 	 Total: 681
+
+Val Accuracies: [0.9527272727272728, 0.9492753623188406, 0.9350180505415162, 0.9314079422382672, 0.9422382671480144]
+Test Accuracies: [0.9328571428571428, 0.939568345323741, 0.918722786647315, 0.9430656934306569, 0.9383259911894273]
+Run id: 103 	 Test Accuracies: [0.9328571428571428, 0.939568345323741, 0.918722786647315, 0.9430656934306569, 0.9383259911894273]
+main.py -t --lr 5e-4 --wd 0.0 --dp 0.5 --epochs 750 --id 104
+
+Loaded data with shape: (3450, 315349).
+Loaded labels with shape: (3450,).
+Data loaded in 7.7s
+
+------------- SPLIT 1 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Initialized model from scratch.
+Epoch[1/750] 	 Validation Accuracy 53/275 = 19.273% 	 Best Accuracy: 0.193
+Epoch[101/750] 	 Validation Accuracy 251/275 = 91.273% 	 Best Accuracy: 0.931
+Epoch[201/750] 	 Validation Accuracy 253/275 = 92.000% 	 Best Accuracy: 0.931
+Epoch[301/750] 	 Validation Accuracy 253/275 = 92.000% 	 Best Accuracy: 0.942
+Epoch[401/750] 	 Validation Accuracy 256/275 = 93.091% 	 Best Accuracy: 0.942
+Epoch[501/750] 	 Validation Accuracy 259/275 = 94.182% 	 Best Accuracy: 0.949
+Epoch[601/750] 	 Validation Accuracy 253/275 = 92.000% 	 Best Accuracy: 0.949
+Epoch[701/750] 	 Validation Accuracy 259/275 = 94.182% 	 Best Accuracy: 0.949
+Best train accuracy: 94.91% 	 Finished split 1 in 24.54s
+
+Val Accuracy: 0.949 	 Total correct: 261 	 Total: 275
+Test Accuracy: 0.939 	 Total correct: 657 	 Total: 700
+
+------------- SPLIT 2 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Epoch[1/750] 	 Validation Accuracy 67/276 = 24.275% 	 Best Accuracy: 0.243
+Epoch[101/750] 	 Validation Accuracy 249/276 = 90.217% 	 Best Accuracy: 0.902
+Epoch[201/750] 	 Validation Accuracy 248/276 = 89.855% 	 Best Accuracy: 0.920
+Epoch[301/750] 	 Validation Accuracy 254/276 = 92.029% 	 Best Accuracy: 0.928
+Epoch[401/750] 	 Validation Accuracy 252/276 = 91.304% 	 Best Accuracy: 0.931
+Epoch[501/750] 	 Validation Accuracy 256/276 = 92.754% 	 Best Accuracy: 0.931
+Epoch[601/750] 	 Validation Accuracy 251/276 = 90.942% 	 Best Accuracy: 0.931
+Epoch[701/750] 	 Validation Accuracy 252/276 = 91.304% 	 Best Accuracy: 0.931
+Best train accuracy: 93.12% 	 Finished split 2 in 24.37s
+
+Val Accuracy: 0.931 	 Total correct: 257 	 Total: 276
+Test Accuracy: 0.940 	 Total correct: 653 	 Total: 695
+
+------------- SPLIT 3 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Epoch[1/750] 	 Validation Accuracy 50/277 = 18.051% 	 Best Accuracy: 0.181
+Epoch[101/750] 	 Validation Accuracy 251/277 = 90.614% 	 Best Accuracy: 0.906
+Epoch[201/750] 	 Validation Accuracy 251/277 = 90.614% 	 Best Accuracy: 0.917
+Epoch[301/750] 	 Validation Accuracy 256/277 = 92.419% 	 Best Accuracy: 0.928
+Epoch[401/750] 	 Validation Accuracy 255/277 = 92.058% 	 Best Accuracy: 0.935
+Epoch[501/750] 	 Validation Accuracy 253/277 = 91.336% 	 Best Accuracy: 0.935
+Epoch[601/750] 	 Validation Accuracy 253/277 = 91.336% 	 Best Accuracy: 0.935
+Epoch[701/750] 	 Validation Accuracy 255/277 = 92.058% 	 Best Accuracy: 0.935
+Best train accuracy: 93.50% 	 Finished split 3 in 24.69s
+
+Val Accuracy: 0.935 	 Total correct: 259 	 Total: 277
+Test Accuracy: 0.914 	 Total correct: 630 	 Total: 689
+
+------------- SPLIT 4 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Epoch[1/750] 	 Validation Accuracy 62/277 = 22.383% 	 Best Accuracy: 0.224
+Epoch[101/750] 	 Validation Accuracy 241/277 = 87.004% 	 Best Accuracy: 0.881
+Epoch[201/750] 	 Validation Accuracy 247/277 = 89.170% 	 Best Accuracy: 0.903
+Epoch[301/750] 	 Validation Accuracy 247/277 = 89.170% 	 Best Accuracy: 0.913
+Epoch[401/750] 	 Validation Accuracy 245/277 = 88.448% 	 Best Accuracy: 0.913
+Epoch[501/750] 	 Validation Accuracy 249/277 = 89.892% 	 Best Accuracy: 0.913
+Epoch[601/750] 	 Validation Accuracy 247/277 = 89.170% 	 Best Accuracy: 0.913
+Epoch[701/750] 	 Validation Accuracy 250/277 = 90.253% 	 Best Accuracy: 0.913
+Best train accuracy: 91.70% 	 Finished split 4 in 24.40s
+
+Val Accuracy: 0.917 	 Total correct: 254 	 Total: 277
+Test Accuracy: 0.917 	 Total correct: 628 	 Total: 685
+
+------------- SPLIT 5 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Epoch[1/750] 	 Validation Accuracy 79/277 = 28.520% 	 Best Accuracy: 0.285
+Epoch[101/750] 	 Validation Accuracy 246/277 = 88.809% 	 Best Accuracy: 0.906
+Epoch[201/750] 	 Validation Accuracy 254/277 = 91.697% 	 Best Accuracy: 0.928
+Epoch[301/750] 	 Validation Accuracy 255/277 = 92.058% 	 Best Accuracy: 0.935
+Epoch[401/750] 	 Validation Accuracy 256/277 = 92.419% 	 Best Accuracy: 0.935
+Epoch[501/750] 	 Validation Accuracy 255/277 = 92.058% 	 Best Accuracy: 0.935
+Epoch[601/750] 	 Validation Accuracy 254/277 = 91.697% 	 Best Accuracy: 0.935
+Epoch[701/750] 	 Validation Accuracy 255/277 = 92.058% 	 Best Accuracy: 0.935
+Best train accuracy: 93.50% 	 Finished split 5 in 24.55s
+
+Val Accuracy: 0.935 	 Total correct: 259 	 Total: 277
+Test Accuracy: 0.937 	 Total correct: 638 	 Total: 681
+
+Val Accuracies: [0.9490909090909091, 0.9311594202898551, 0.9350180505415162, 0.9169675090252708, 0.9350180505415162]
+Test Accuracies: [0.9385714285714286, 0.939568345323741, 0.9143686502177069, 0.9167883211678832, 0.9368575624082232]
+Run id: 104 	 Test Accuracies: [0.9385714285714286, 0.939568345323741, 0.9143686502177069, 0.9167883211678832, 0.9368575624082232]
+main.py -t --lr 1e-4 --wd 0.0 --dp 0.5 --epochs 750 --id 105
+
+Loaded data with shape: (3450, 315349).
+Loaded labels with shape: (3450,).
+Data loaded in 7.9s
+
+------------- SPLIT 1 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Initialized model from scratch.
+Epoch[1/750] 	 Validation Accuracy 9/275 = 3.273% 	 Best Accuracy: 0.033
+Epoch[101/750] 	 Validation Accuracy 239/275 = 86.909% 	 Best Accuracy: 0.880
+Epoch[201/750] 	 Validation Accuracy 245/275 = 89.091% 	 Best Accuracy: 0.909
+Epoch[301/750] 	 Validation Accuracy 253/275 = 92.000% 	 Best Accuracy: 0.931
+Epoch[401/750] 	 Validation Accuracy 250/275 = 90.909% 	 Best Accuracy: 0.931
+Epoch[501/750] 	 Validation Accuracy 251/275 = 91.273% 	 Best Accuracy: 0.931
+Epoch[601/750] 	 Validation Accuracy 253/275 = 92.000% 	 Best Accuracy: 0.931
+Epoch[701/750] 	 Validation Accuracy 250/275 = 90.909% 	 Best Accuracy: 0.931
+Best train accuracy: 93.09% 	 Finished split 1 in 24.64s
+
+Val Accuracy: 0.931 	 Total correct: 256 	 Total: 275
+Test Accuracy: 0.904 	 Total correct: 633 	 Total: 700
+
+------------- SPLIT 2 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Epoch[1/750] 	 Validation Accuracy 12/276 = 4.348% 	 Best Accuracy: 0.043
+Epoch[101/750] 	 Validation Accuracy 239/276 = 86.594% 	 Best Accuracy: 0.877
+Epoch[201/750] 	 Validation Accuracy 245/276 = 88.768% 	 Best Accuracy: 0.902
+Epoch[301/750] 	 Validation Accuracy 250/276 = 90.580% 	 Best Accuracy: 0.909
+Epoch[401/750] 	 Validation Accuracy 254/276 = 92.029% 	 Best Accuracy: 0.920
+Epoch[501/750] 	 Validation Accuracy 253/276 = 91.667% 	 Best Accuracy: 0.931
+Epoch[601/750] 	 Validation Accuracy 253/276 = 91.667% 	 Best Accuracy: 0.931
+Epoch[701/750] 	 Validation Accuracy 254/276 = 92.029% 	 Best Accuracy: 0.935
+Best train accuracy: 93.48% 	 Finished split 2 in 24.78s
+
+Val Accuracy: 0.935 	 Total correct: 258 	 Total: 276
+Test Accuracy: 0.928 	 Total correct: 645 	 Total: 695
+
+------------- SPLIT 3 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Epoch[1/750] 	 Validation Accuracy 9/277 = 3.249% 	 Best Accuracy: 0.032
+Epoch[101/750] 	 Validation Accuracy 235/277 = 84.838% 	 Best Accuracy: 0.852
+Epoch[201/750] 	 Validation Accuracy 242/277 = 87.365% 	 Best Accuracy: 0.874
+Epoch[301/750] 	 Validation Accuracy 245/277 = 88.448% 	 Best Accuracy: 0.892
+Epoch[401/750] 	 Validation Accuracy 248/277 = 89.531% 	 Best Accuracy: 0.913
+Epoch[501/750] 	 Validation Accuracy 252/277 = 90.975% 	 Best Accuracy: 0.913
+Epoch[601/750] 	 Validation Accuracy 253/277 = 91.336% 	 Best Accuracy: 0.924
+Epoch[701/750] 	 Validation Accuracy 255/277 = 92.058% 	 Best Accuracy: 0.924
+Best train accuracy: 92.78% 	 Finished split 3 in 24.44s
+
+Val Accuracy: 0.928 	 Total correct: 257 	 Total: 277
+Test Accuracy: 0.914 	 Total correct: 630 	 Total: 689
+
+------------- SPLIT 4 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Epoch[1/750] 	 Validation Accuracy 19/277 = 6.859% 	 Best Accuracy: 0.069
+Epoch[101/750] 	 Validation Accuracy 244/277 = 88.087% 	 Best Accuracy: 0.881
+Epoch[201/750] 	 Validation Accuracy 241/277 = 87.004% 	 Best Accuracy: 0.884
+Epoch[301/750] 	 Validation Accuracy 250/277 = 90.253% 	 Best Accuracy: 0.903
+Epoch[401/750] 	 Validation Accuracy 251/277 = 90.614% 	 Best Accuracy: 0.910
+Epoch[501/750] 	 Validation Accuracy 250/277 = 90.253% 	 Best Accuracy: 0.910
+Epoch[601/750] 	 Validation Accuracy 251/277 = 90.614% 	 Best Accuracy: 0.913
+Epoch[701/750] 	 Validation Accuracy 251/277 = 90.614% 	 Best Accuracy: 0.913
+Best train accuracy: 91.34% 	 Finished split 4 in 24.60s
+
+Val Accuracy: 0.913 	 Total correct: 253 	 Total: 277
+Test Accuracy: 0.911 	 Total correct: 624 	 Total: 685
+
+------------- SPLIT 5 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Epoch[1/750] 	 Validation Accuracy 27/277 = 9.747% 	 Best Accuracy: 0.097
+Epoch[101/750] 	 Validation Accuracy 234/277 = 84.477% 	 Best Accuracy: 0.856
+Epoch[201/750] 	 Validation Accuracy 244/277 = 88.087% 	 Best Accuracy: 0.888
+Epoch[301/750] 	 Validation Accuracy 244/277 = 88.087% 	 Best Accuracy: 0.892
+Epoch[401/750] 	 Validation Accuracy 248/277 = 89.531% 	 Best Accuracy: 0.903
+Epoch[501/750] 	 Validation Accuracy 248/277 = 89.531% 	 Best Accuracy: 0.913
+Epoch[601/750] 	 Validation Accuracy 249/277 = 89.892% 	 Best Accuracy: 0.917
+Epoch[701/750] 	 Validation Accuracy 255/277 = 92.058% 	 Best Accuracy: 0.928
+Best train accuracy: 93.50% 	 Finished split 5 in 24.93s
+
+Val Accuracy: 0.935 	 Total correct: 259 	 Total: 277
+Test Accuracy: 0.931 	 Total correct: 634 	 Total: 681
+
+Val Accuracies: [0.9309090909090909, 0.9347826086956522, 0.927797833935018, 0.9133574007220217, 0.9350180505415162]
+Test Accuracies: [0.9042857142857142, 0.9280575539568345, 0.9143686502177069, 0.910948905109489, 0.9309838472834068]
+Run id: 105 	 Test Accuracies: [0.9042857142857142, 0.9280575539568345, 0.9143686502177069, 0.910948905109489, 0.9309838472834068]
+main.py -t --lr 5e-5 --wd 0.0 --dp 0.5 --epochs 1000 --id 106
+
+Loaded data with shape: (3450, 315349).
+Loaded labels with shape: (3450,).
+Data loaded in 7.8s
+
+------------- SPLIT 1 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Initialized model from scratch.
+Epoch[1/1000] 	 Validation Accuracy 24/275 = 8.727% 	 Best Accuracy: 0.087
+Epoch[101/1000] 	 Validation Accuracy 227/275 = 82.545% 	 Best Accuracy: 0.836
+Epoch[201/1000] 	 Validation Accuracy 237/275 = 86.182% 	 Best Accuracy: 0.873
+Epoch[301/1000] 	 Validation Accuracy 250/275 = 90.909% 	 Best Accuracy: 0.916
+Epoch[401/1000] 	 Validation Accuracy 252/275 = 91.636% 	 Best Accuracy: 0.924
+Epoch[501/1000] 	 Validation Accuracy 255/275 = 92.727% 	 Best Accuracy: 0.931
+Epoch[601/1000] 	 Validation Accuracy 253/275 = 92.000% 	 Best Accuracy: 0.931
+Epoch[701/1000] 	 Validation Accuracy 256/275 = 93.091% 	 Best Accuracy: 0.931
+Epoch[801/1000] 	 Validation Accuracy 255/275 = 92.727% 	 Best Accuracy: 0.935
+Epoch[901/1000] 	 Validation Accuracy 254/275 = 92.364% 	 Best Accuracy: 0.935
+Best train accuracy: 93.45% 	 Finished split 1 in 33.28s
+
+Val Accuracy: 0.935 	 Total correct: 257 	 Total: 275
+Test Accuracy: 0.921 	 Total correct: 645 	 Total: 700
+
+------------- SPLIT 2 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Epoch[1/1000] 	 Validation Accuracy 2/276 = 0.725% 	 Best Accuracy: 0.007
+Epoch[101/1000] 	 Validation Accuracy 231/276 = 83.696% 	 Best Accuracy: 0.837
+Epoch[201/1000] 	 Validation Accuracy 239/276 = 86.594% 	 Best Accuracy: 0.870
+Epoch[301/1000] 	 Validation Accuracy 249/276 = 90.217% 	 Best Accuracy: 0.906
+Epoch[401/1000] 	 Validation Accuracy 250/276 = 90.580% 	 Best Accuracy: 0.917
+Epoch[501/1000] 	 Validation Accuracy 253/276 = 91.667% 	 Best Accuracy: 0.920
+Epoch[601/1000] 	 Validation Accuracy 255/276 = 92.391% 	 Best Accuracy: 0.928
+Epoch[701/1000] 	 Validation Accuracy 254/276 = 92.029% 	 Best Accuracy: 0.928
+Epoch[801/1000] 	 Validation Accuracy 254/276 = 92.029% 	 Best Accuracy: 0.928
+Epoch[901/1000] 	 Validation Accuracy 254/276 = 92.029% 	 Best Accuracy: 0.928
+Best train accuracy: 93.12% 	 Finished split 2 in 33.22s
+
+Val Accuracy: 0.931 	 Total correct: 257 	 Total: 276
+Test Accuracy: 0.937 	 Total correct: 651 	 Total: 695
+
+------------- SPLIT 3 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Epoch[1/1000] 	 Validation Accuracy 7/277 = 2.527% 	 Best Accuracy: 0.025
+Epoch[101/1000] 	 Validation Accuracy 230/277 = 83.032% 	 Best Accuracy: 0.841
+Epoch[201/1000] 	 Validation Accuracy 238/277 = 85.921% 	 Best Accuracy: 0.859
+Epoch[301/1000] 	 Validation Accuracy 244/277 = 88.087% 	 Best Accuracy: 0.881
+Epoch[401/1000] 	 Validation Accuracy 243/277 = 87.726% 	 Best Accuracy: 0.884
+Epoch[501/1000] 	 Validation Accuracy 246/277 = 88.809% 	 Best Accuracy: 0.892
+Epoch[601/1000] 	 Validation Accuracy 248/277 = 89.531% 	 Best Accuracy: 0.895
+Epoch[701/1000] 	 Validation Accuracy 251/277 = 90.614% 	 Best Accuracy: 0.906
+Epoch[801/1000] 	 Validation Accuracy 254/277 = 91.697% 	 Best Accuracy: 0.917
+Epoch[901/1000] 	 Validation Accuracy 255/277 = 92.058% 	 Best Accuracy: 0.921
+Best train accuracy: 92.78% 	 Finished split 3 in 33.34s
+
+Val Accuracy: 0.928 	 Total correct: 257 	 Total: 277
+Test Accuracy: 0.910 	 Total correct: 627 	 Total: 689
+
+------------- SPLIT 4 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Epoch[1/1000] 	 Validation Accuracy 32/277 = 11.552% 	 Best Accuracy: 0.116
+Epoch[101/1000] 	 Validation Accuracy 228/277 = 82.310% 	 Best Accuracy: 0.830
+Epoch[201/1000] 	 Validation Accuracy 227/277 = 81.949% 	 Best Accuracy: 0.841
+Epoch[301/1000] 	 Validation Accuracy 232/277 = 83.755% 	 Best Accuracy: 0.845
+Epoch[401/1000] 	 Validation Accuracy 237/277 = 85.560% 	 Best Accuracy: 0.863
+Epoch[501/1000] 	 Validation Accuracy 244/277 = 88.087% 	 Best Accuracy: 0.881
+Epoch[601/1000] 	 Validation Accuracy 247/277 = 89.170% 	 Best Accuracy: 0.892
+Epoch[701/1000] 	 Validation Accuracy 247/277 = 89.170% 	 Best Accuracy: 0.892
+Epoch[801/1000] 	 Validation Accuracy 248/277 = 89.531% 	 Best Accuracy: 0.903
+Epoch[901/1000] 	 Validation Accuracy 249/277 = 89.892% 	 Best Accuracy: 0.903
+Best train accuracy: 90.25% 	 Finished split 4 in 32.22s
+
+Val Accuracy: 0.903 	 Total correct: 250 	 Total: 277
+Test Accuracy: 0.921 	 Total correct: 631 	 Total: 685
+
+------------- SPLIT 5 --------------
+
+Dataloader loaded in 0.0s
+
+MLP(
+  (linear1): Linear(in_features=200, out_features=100, bias=True)
+  (relu): ReLU()
+  (dropout): Dropout(p=0.5)
+  (linear2): Linear(in_features=100, out_features=26, bias=True)
+)
+Epoch[1/1000] 	 Validation Accuracy 2/277 = 0.722% 	 Best Accuracy: 0.007
+Epoch[101/1000] 	 Validation Accuracy 235/277 = 84.838% 	 Best Accuracy: 0.852
+Epoch[201/1000] 	 Validation Accuracy 247/277 = 89.170% 	 Best Accuracy: 0.892
+Epoch[301/1000] 	 Validation Accuracy 249/277 = 89.892% 	 Best Accuracy: 0.899
+Epoch[401/1000] 	 Validation Accuracy 246/277 = 88.809% 	 Best Accuracy: 0.903
+Epoch[501/1000] 	 Validation Accuracy 246/277 = 88.809% 	 Best Accuracy: 0.903
+Epoch[601/1000] 	 Validation Accuracy 251/277 = 90.614% 	 Best Accuracy: 0.913
+Epoch[701/1000] 	 Validation Accuracy 254/277 = 91.697% 	 Best Accuracy: 0.921
+Epoch[801/1000] 	 Validation Accuracy 254/277 = 91.697% 	 Best Accuracy: 0.921
+Epoch[901/1000] 	 Validation Accuracy 253/277 = 91.336% 	 Best Accuracy: 0.921
+Best train accuracy: 92.06% 	 Finished split 5 in 32.42s
+
+Val Accuracy: 0.921 	 Total correct: 255 	 Total: 277
+Test Accuracy: 0.916 	 Total correct: 624 	 Total: 681
+
+Val Accuracies: [0.9345454545454546, 0.9311594202898551, 0.927797833935018, 0.9025270758122743, 0.9205776173285198]
+Test Accuracies: [0.9214285714285714, 0.9366906474820144, 0.9100145137880987, 0.9211678832116789, 0.9162995594713657]
+Run id: 106 	 Test Accuracies: [0.9214285714285714, 0.9366906474820144, 0.9100145137880987, 0.9211678832116789, 0.9162995594713657]
