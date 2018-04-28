@@ -11,6 +11,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import IncrementalPCA
 
+import pdb
+
 def get_data(data_path, labels_path):
     '''Loads data and returns numpy array'''
 
@@ -26,15 +28,16 @@ def get_data(data_path, labels_path):
 
     return data, labels
 
-def get_dataloader(data_X, data_X_test, y, y_test, batch_size=64, val_fraction=0.1, pca_components=200, i=0):
+def get_dataloader(data_X, data_X_test, y, y_test, batch_size=64, val_fraction=0.1, 
+        pca_components=200, i=0, save_dataset=True):
     '''Performs PCA and returns dataloaders'''
     
     # Train / val split
-    data_X_train, data_X_val, y_train, y_val = train_test_split(data_X, y, test_size=val_fraction)
+    data_X_train, data_X_val, y_train, y_val = train_test_split(data_X, y, stratify=y, test_size=val_fraction)
 
     # Standardization
     scaler = StandardScaler()
-    scaler.fit(data_X)
+    scaler.fit(data_X_train)
     data_X_train = scaler.transform(data_X_train, copy=False)
     data_X_val = scaler.transform(data_X_val, copy=False)
     data_X_test = scaler.transform(data_X_test, copy=False)
@@ -61,7 +64,9 @@ def get_dataloader(data_X, data_X_test, y, y_test, batch_size=64, val_fraction=0
     val_dataset = TensorDataset(X_val, y_val)
     test_dataset = TensorDataset(X_test, y_test)
 
-    torch.save([train_dataset, val_dataset, test_dataset], 'datasets_{}.pth'.format(i))
+    # Save dataset
+    if save_dataset:
+        torch.save([train_dataset, val_dataset, test_dataset], 'save/datasets_{}.pth'.format(i))
 
     # Create dataloader
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
@@ -69,4 +74,24 @@ def get_dataloader(data_X, data_X_test, y, y_test, batch_size=64, val_fraction=0
     test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
     return train_loader, val_loader, test_loader, input_size, num_classes
+
+def get_dataloader_from_datasets(batch_size, i):
+    '''Loads dataset from ../data/datasets/datasets_{i}.pth for convenience'''
+
+    # Path is fixed
+    dataset_path = '../data/preloaded_datasets/datasets_{}.pth'.format(i)
+    train_dataset, val_dataset, test_dataset = torch.load(dataset_path)
+
+    # Constants 
+    input_size = train_dataset.data_tensor.size(1) 
+    num_classes = train_dataset.target_tensor.max() + 1
+
+    # Create dataloader
+    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+    val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
+    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
+
+    return train_loader, val_loader, test_loader, input_size, num_classes
+
+    
 

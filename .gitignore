@@ -1,5 +1,7 @@
 save/
 data/
+datasets/
+preloaded_datasets/
 processing/
 
 *.pyc

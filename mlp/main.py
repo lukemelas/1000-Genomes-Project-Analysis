@@ -5,7 +5,7 @@ import torch
 import torch.nn as nn
 
 import utils
-from dataloader import get_data, get_dataloader
+from dataloader import get_data, get_dataloader, get_dataloader_from_datasets
 from train import train, validate
 
 from models.LogisticRegression import LogisticRegression
@@ -37,7 +37,7 @@ parser.add_argument('--print_freq', metavar='N', type=int, default=100, help='pr
 parser.add_argument('--val_fraction', metavar='float', default=0.1, help='fraction of train to use as val, default=0.2')
 parser.add_argument('--pca_components', metavar='N', type=int, default=200, help='number of components for PCA, default=200')
 parser.add_argument('--cross_val_splits', metavar='N', type=int, default=5, help='number of times to cross-validate, default=5')
-parser.add_argument('--no_preloaded_splits', action='store_false', help='do not use preloaded train/val/test splits')
+parser.add_argument('--no_preloaded_splits', action='store_true', help='do not use preloaded train/val/test splits')
 parser.add_argument('-e', '--eval', dest='evaluate', action='store_true', help='evaluate and do not train, default: False')
 parser.add_argument('-t', '--test', dest='test', action='store_true', help='evaluate on the test set after training, default: False')
 
@@ -59,7 +59,7 @@ def main():
     test_accuracies = []
 
     # Seed for cross-val split
-    seed = random.randint(0,10000)
+    seed = random.randint(0,10000) if opt.seed < 0 else opt.seed
     logger.log('SEED: {}'.format(seed), stdout=False)
 
     # Load data
@@ -68,7 +68,7 @@ def main():
     logger.log('Data loaded in {:.1f}s\n'.format(time.time() - start))
 
     # Create cross-validation splits
-    kf = StratifiedKFold(n_splits=opt.cross_val_splits, random_state=seed)
+    kf = StratifiedKFold(n_splits=opt.cross_val_splits, random_state=seed, shuffle=True)
 
     # Cross validate 
     for i, (train_index, test_index) in enumerate(kf.split(data, label)):
@@ -80,10 +80,13 @@ def main():
         data_X, data_X_test = data[train_index], data[test_index]
         y, y_test = label[train_index], label[test_index]
 
-        # Perform PCA and get dataloader
+        # Perform PCA and generate dataloader or load from saved file
         start = time.time()
-        train_loader, val_loader, test_loader, input_size, num_classes = get_dataloader(data_X, 
+        if opt.no_preloaded_splits:
+            train_loader, val_loader, test_loader, input_size, num_classes = get_dataloader(data_X, 
                 data_X_test, y, y_test, opt.b, opt.val_fraction, opt.pca_components, i=i)
+        else:
+            train_loader, val_loader, test_loader, input_size, num_classes = get_dataloader_from_datasets(opt.b, i)
         logger.log('Dataloader loaded in {:.1f}s\n'.format(time.time() - start))
 
         # Model 
@@ -118,23 +121,23 @@ def main():
         logger.log('ARGS: {}\nOPTIMIZER: {}\nLEARNING RATE: {}\nSCHEDULER: {}\nMODEL: {}\n'.format(
             opt, optimizer, opt.lr, vars(scheduler), model), stdout=False)
 
-        # Either evaluate model
+        # If specified, only evaluate model
         if opt.evaluate:
             assert opt.model != None, 'no pretrained model to evaluate'
             total_correct, total, _ = validate(model, val_loader, criterion)
             logger.log('Accuracy: {:.3f} \t Total correct: {} \t Total: {}'.format(
                 total_correct/total, total_correct, total))
             return 
-        # Or train model
-        else:
-            start_time = time.time()
-            best_acc = train(model, train_loader, val_loader, optimizer, criterion, logger, 
-                num_epochs=opt.epochs, print_freq=opt.print_freq, model_id=i)
-            logger.log('Best train accuracy: {:.2f}% \t Finished split {} in {:.2f}s\n'.format(
-                100 * best_acc, i+1, time.time() - start_time))
-            val_accuracies.append(best_acc)
 
-        # Optionally also test on test set
+        # Train model 
+        start_time = time.time()
+        best_acc = train(model, train_loader, val_loader, optimizer, criterion, logger, 
+            num_epochs=opt.epochs, print_freq=opt.print_freq, model_id=i)
+        logger.log('Best train accuracy: {:.2f}% \t Finished split {} in {:.2f}s\n'.format(
+            100 * best_acc, i+1, time.time() - start_time))
+        val_accuracies.append(best_acc)
+
+        # Optionally also evaluate on test set
         if opt.test:
             best_model_path = os.path.join(path, 'model_{}.pth'.format(i))
             model.load_state_dict(torch.load(best_model_path)) # load best model
