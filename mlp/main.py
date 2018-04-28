@@ -51,7 +51,8 @@ def main():
 
     # Cross validate 
     seeds = []
-    accuracies = []
+    val_accuracies = []
+    test_accuracies = []
     for i in range(opt.cross_val_splits):
 
         # Log split
@@ -101,7 +102,7 @@ def main():
         # Either evaluate model
         if opt.evaluate:
             assert opt.model != None, 'no pretrained model to evaluate'
-            total_correct, total = validate(model, val_loader, criterion)
+            total_correct, total, _ = validate(model, val_loader, criterion)
             logger.log('Accuracy: {:.3f} \t Total correct: {} \t Total: {}'.format(
                 total_correct/total, total_correct, total))
             return 
@@ -112,23 +113,25 @@ def main():
                 num_epochs=opt.epochs, print_freq=opt.print_freq, model_id=i)
             logger.log('Best train accuracy: {:.2f}% \t Finished split {} in {:.2f}s\n'.format(
                 100 * best_acc, i+1, time.time() - start_time))
-            accuracies.append(best_acc)
+            val_accuracies.append(best_acc)
 
         # Optionally also test on test set
         if opt.test:
             best_model_path = os.path.join(path, 'model_{}.pth'.format(i))
             model.load_state_dict(torch.load(best_model_path)) # load best model
-            total_correct, total = validate(model, val_loader, criterion) # check val set
+            total_correct, total, _ = validate(model, val_loader, criterion) # check val set
             logger.log('Val Accuracy: {:.3f} \t Total correct: {} \t Total: {}'.format(
                 total_correct/total, total_correct, total))
-            total_correct, total = validate(model, test_loader, criterion) # run test set
+            total_correct, total, visualize = validate(model, test_loader, criterion) # run test set
             logger.log('Test Accuracy: {:.3f} \t Total correct: {} \t Total: {}\n'.format(
                 total_correct/total, total_correct, total))
-            
+            logger.save_model(visualize, 'visualize_{}.pth'.format(i))
+            test_accuracies.append(total_correct/total)
     
     # Log after training
     logger.log('Training Seeds: {}'.format(seeds), stdout=False)
-    logger.log('Training Accuracies: {}'.format(accuracies))
+    logger.log('Val Accuracies: {}'.format(val_accuracies))
+    logger.log('Test Accuracies: {}'.format(test_accuracies))
 
 if __name__ == '__main__':
     print(' '.join(sys.argv))
