@@ -9,7 +9,7 @@ def validate(model, val_loader, criterion, visualize=False):
     total_correct = 0
     total_loss = 0
 
-    if visualize: # store results for conusion matrix
+    if visualize: # store results for confusion matrix
         results = []
         results.append([])
         results.append([])
@@ -27,10 +27,10 @@ def validate(model, val_loader, criterion, visualize=False):
         total += label.numel()
     
         if visualize:
-            results[0].append(preds)
+            results[0].append(pred)
             results[1].append(label)
 
-    return total_correct, total, visualize
+    return total_correct, total, results
 
 def train(model, train_loader, val_loader, optimizer, criterion, logger, num_epochs=30, print_freq=50, model_id=1):
     best_acc = 0

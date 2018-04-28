@@ -5,12 +5,14 @@ import torch
 import torch.nn as nn
 
 import utils
-from dataloader import get_dataloader
+from dataloader import get_data, get_dataloader
 from train import train, validate
 
 from models.LogisticRegression import LogisticRegression
 from models.MLP import MLP
 from models.Experimental import ExperimentalModel
+
+from sklearn.model_selection import StratifiedKFold
 
 import pdb
 
@@ -23,15 +25,17 @@ parser.add_argument('--b', default=128, type=int, metavar='N', help='batch size,
 parser.add_argument('--wd', default=0, type=float, metavar='N', help='weight decay, default=0')
 parser.add_argument('--dp', default=0.50, type=float, metavar='N', help='dropout probability, default=0.50')
 parser.add_argument('--arch', default='MLP', help='which model to use: MLP|Exp|LogReg, default=MLP')
-parser.add_argument('--data', metavar='DIR', default='../data/data_pca_300comps.pkl', help='path to PCA data')
-parser.add_argument('--model', metavar='DIR', default=None, help='path to model, default: None')
+parser.add_argument('--seed', metavar='N', default=-1, type=int, help='random seed for train/test split, default=-1 (random)')
+parser.add_argument('--data', metavar='DIR', default='../data/data_all_float16.pkl', help='path to raw (np array) data')
+parser.add_argument('--label', metavar='DIR', default='../data/pops_with_ints_pandas.pkl', help='path to raw (np array) labels')
+parser.add_argument('--model', metavar='DIR', default=None, help='path to model, default=None')
 parser.add_argument('--epochs', metavar='N', type=int, default=600, help='number of epochs, default=600')
 parser.add_argument('--verbose', action='store_true', help='print more frequently')
 parser.add_argument('--features', metavar='N', type=int, default=-1, help='number of features to use, default=-1 (all)')
 parser.add_argument('--savepath', metavar='DIR', default=None, help='directory to save model and logs')
-parser.add_argument('--val_size', metavar='float', default=0.2, help='fraction of data to use as val, default=0.2')
-parser.add_argument('--test_size', metavar='float', default=0.2, help='fraction of data to use as test, default=0.2')
 parser.add_argument('--print_freq', metavar='N', type=int, default=100, help='printing/logging frequency, default=100')
+parser.add_argument('--val_fraction', metavar='float', default=0.2, help='fraction of train to use as val, default=0.2')
+parser.add_argument('--pca_components', metavar='N', type=int, default=200, help='number of components for PCA, default=200')
 parser.add_argument('--cross_val_splits', metavar='N', type=int, default=5, help='number of times to cross-validate, default=5')
 parser.add_argument('-e', '--eval', dest='evaluate', action='store_true', help='evaluate and do not train, default: False')
 parser.add_argument('-t', '--test', dest='test', action='store_true', help='evaluate on the test set after training, default: False')
@@ -43,29 +47,43 @@ def main():
 
     # Set up logging
     if opt.savepath == None:
-        path = os.path.join('save', datetime.datetime.now().strftime("%m-%d-%H-%M-%S"))
+        path = os.path.join('save', datetime.datetime.now().strftime("%d-%H-%M-%S"))
     else:
         path = opt.savepath
     os.makedirs(path, exist_ok=True)
     logger = utils.Logger(path)
 
-    # Cross validate 
-    seeds = []
+    # Keep track of accuracies 
     val_accuracies = []
     test_accuracies = []
-    for i in range(opt.cross_val_splits):
+
+    # Seed for cross-val split
+    seed = random.randint(0,10000)
+    logger.log('SEED: {}'.format(seed), stdout=False)
+
+    # Load data
+    start = time.time()
+    data, label = get_data(opt.data, opt.label)
+    logger.log('Data loaded in {:.1f}s\n'.format(time.time() - start))
+
+    # Create cross-validation splits
+    kf = StratifiedKFold(n_splits=opt.cross_val_splits, random_state=seed)
+
+    # Cross validate 
+    for i, (train_index, test_index) in enumerate(kf.split(data, label)):
 
         # Log split
         logger.log('------------- SPLIT {} --------------\n'.format(i+1))
 
-        # Generate random seed for train/test split
-        random_seeds = (random.randint(0,10000), random.randint(0,10000))
-        seeds.append(random_seeds) 
+        # Train / test split 
+        data_X, data_X_test = data[train_index], data[test_index]
+        y, y_test = label[train_index], label[test_index]
 
-        # Data
-        time_data = time.time()
-        train_loader, val_loader, test_loader, input_size, num_classes = get_dataloader(opt.data, 
-                opt.b, opt.test_size, opt.val_size, random_seeds)
+        # Perform PCA and get dataloader
+        start = time.time()
+        train_loader, val_loader, test_loader, input_size, num_classes = get_dataloader(data_X, 
+                data_X_test, y, y_test, opt.b, opt.val_fraction, opt.pca_components)
+        logger.log('Dataloader loaded in {:.1f}s\n'.format(time.time() - start))
 
         # Model 
         arch = opt.arch.lower()
@@ -122,14 +140,13 @@ def main():
             total_correct, total, _ = validate(model, val_loader, criterion) # check val set
             logger.log('Val Accuracy: {:.3f} \t Total correct: {} \t Total: {}'.format(
                 total_correct/total, total_correct, total))
-            total_correct, total, visualize = validate(model, test_loader, criterion) # run test set
+            total_correct, total, visualize = validate(model, test_loader, criterion, visualize=True) # run test set
             logger.log('Test Accuracy: {:.3f} \t Total correct: {} \t Total: {}\n'.format(
                 total_correct/total, total_correct, total))
             logger.save_model(visualize, 'visualize_{}.pth'.format(i))
             test_accuracies.append(total_correct/total)
     
     # Log after training
-    logger.log('Training Seeds: {}'.format(seeds), stdout=False)
     logger.log('Val Accuracies: {}'.format(val_accuracies))
     logger.log('Test Accuracies: {}'.format(test_accuracies))
 

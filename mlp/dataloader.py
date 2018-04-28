@@ -11,27 +11,32 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import IncrementalPCA
 
-def get_dataloader(filepath, batch_size=64, test_size=0.2, val_size=0.2, seed=[42,74], pca_components=250):
-    '''Takes a filepath of standardized (!) PCA components as a numpy array'''
+def get_data(data_path, labels_path):
+    '''Loads data and returns numpy array'''
 
     # Load data
-    filepath = '../data/data_all_float16.pkl'
-    data = pickle.load(open(filepath, 'rb'))
+    data = pickle.load(open(data_path, 'rb'))
     data = data.astype(np.float32, copy=False)
     print('Loaded data with shape: {}.'.format(data.shape))
 
     # Load labels (populations)
-    pops = pickle.load(open('../data/pops_with_ints_pandas.pkl','rb'))
+    pops = pickle.load(open(labels_path, 'rb')) 
     labels = pops['pop int'].values
     print('Loaded labels with shape: {}.'.format(labels.shape))
 
-    # Train / test split
-    data_X_train, data_X_test, y_train, y_test = train_test_split(data, labels, test_size=test_size, random_state=seed[0])
+    return data, labels
+
+def get_dataloader(data_X, data_X_test, y, y_test, batch_size=64, val_fraction=0.2, pca_components=200):
+    '''Performs PCA and returns dataloaders'''
+
+    # Train / val split
+    data_X_train, data_X_val, y_train, y_val = train_test_split(data_X, y, test_size=val_fraction)
     
     # Standardization
     scaler = StandardScaler()
     scaler.fit(data_X_train)
     data_scaled_X_train = scaler.transform(data_X_train, copy=False)
+    data_scaled_X_val = scaler.transform(data_X_val, copy=False)
     data_scaled_X_test = scaler.transform(data_X_test, copy=False)
     print('Data scaled.')
 
@@ -39,11 +44,9 @@ def get_dataloader(filepath, batch_size=64, test_size=0.2, val_size=0.2, seed=[4
     ipca = IncrementalPCA(n_components=pca_components, batch_size=10*pca_components)
     ipca.fit(data_scaled_X_train)
     X_train = ipca.transform(data_scaled_X_train)
+    X_val = ipca.transform(data_scaled_X_val)
     X_test = ipca.transform(data_scaled_X_test)
     print('PCA performed.')
-
-    # Train / val split
-    X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=val_size, random_state=seed[1])
 
     # Torchify
     X_train, X_val, X_test = [torch.FloatTensor(s) for s in [X_train, X_val, X_test]]
