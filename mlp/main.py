@@ -37,6 +37,7 @@ parser.add_argument('--print_freq', metavar='N', type=int, default=100, help='pr
 parser.add_argument('--val_fraction', metavar='float', default=0.2, help='fraction of train to use as val, default=0.2')
 parser.add_argument('--pca_components', metavar='N', type=int, default=200, help='number of components for PCA, default=200')
 parser.add_argument('--cross_val_splits', metavar='N', type=int, default=5, help='number of times to cross-validate, default=5')
+parser.add_argument('--no_preloaded_splits', action='store_false', help='do not use preloaded train/val/test splits')
 parser.add_argument('-e', '--eval', dest='evaluate', action='store_true', help='evaluate and do not train, default: False')
 parser.add_argument('-t', '--test', dest='test', action='store_true', help='evaluate on the test set after training, default: False')
 
