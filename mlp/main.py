@@ -34,7 +34,7 @@ parser.add_argument('--verbose', action='store_true', help='print more frequentl
 parser.add_argument('--features', metavar='N', type=int, default=-1, help='number of features to use, default=-1 (all)')
 parser.add_argument('--savepath', metavar='DIR', default=None, help='directory to save model and logs')
 parser.add_argument('--print_freq', metavar='N', type=int, default=100, help='printing/logging frequency, default=100')
-parser.add_argument('--val_fraction', metavar='float', default=0.2, help='fraction of train to use as val, default=0.2')
+parser.add_argument('--val_fraction', metavar='float', default=0.1, help='fraction of train to use as val, default=0.2')
 parser.add_argument('--pca_components', metavar='N', type=int, default=200, help='number of components for PCA, default=200')
 parser.add_argument('--cross_val_splits', metavar='N', type=int, default=5, help='number of times to cross-validate, default=5')
 parser.add_argument('--no_preloaded_splits', action='store_false', help='do not use preloaded train/val/test splits')
@@ -83,7 +83,7 @@ def main():
         # Perform PCA and get dataloader
         start = time.time()
         train_loader, val_loader, test_loader, input_size, num_classes = get_dataloader(data_X, 
-                data_X_test, y, y_test, opt.b, opt.val_fraction, opt.pca_components)
+                data_X_test, y, y_test, opt.b, opt.val_fraction, opt.pca_components, i=i)
         logger.log('Dataloader loaded in {:.1f}s\n'.format(time.time() - start))
 
         # Model 
