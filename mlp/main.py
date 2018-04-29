@@ -5,7 +5,7 @@ import torch
 import torch.nn as nn
 
 import utils
-from dataloader import get_data, get_dataloader, get_dataloader_from_datasets
+from dataloader import get_data, get_dataloader
 from train import train, validate
 
 from models.LogisticRegression import LogisticRegression
@@ -17,13 +17,13 @@ from sklearn.model_selection import StratifiedKFold
 import pdb
 
 parser = argparse.ArgumentParser(description='Genome Project')
-parser.add_argument('--lr', default=5e-3, type=float, metavar='N', help='learning rate, default=5e-3')
+parser.add_argument('--lr', default=5e-4, type=float, metavar='N', help='learning rate, default=5e-3')
 parser.add_argument('--lr_decay_factor',   type=float, default=0.99, metavar='N', help='lr decay, default=0.99 (no decay)')
 parser.add_argument('--lr_decay_patience', type=int,   default=10,   metavar='N', help='lr decay patience, default=10')
 parser.add_argument('--lr_decay_cooldown', type=int,   default=5,    metavar='N', help='lr decay cooldown, default=5')
 parser.add_argument('--b', default=128, type=int, metavar='N', help='batch size, default=128')
 parser.add_argument('--id', default=0, type=int, metavar='N', help='identified for the run, default=0')
-parser.add_argument('--wd', default=0, type=float, metavar='N', help='weight decay, default=0')
+parser.add_argument('--wd', default=1e-5, type=float, metavar='N', help='weight decay, default=0')
 parser.add_argument('--dp', default=0.50, type=float, metavar='N', help='dropout probability, default=0.50')
 parser.add_argument('--arch', default='MLP', help='which model to use: MLP|Exp|LogReg, default=MLP')
 parser.add_argument('--seed', metavar='N', default=-1, type=int, help='random seed for train/test split, default=-1 (random)')
@@ -31,14 +31,14 @@ parser.add_argument('--data', metavar='DIR', default='../data/data_all_float16.p
 parser.add_argument('--label', metavar='DIR', default='../data/pops_with_ints_pandas.pkl', help='path to raw (np array) labels')
 parser.add_argument('--model', metavar='DIR', default=None, help='path to model, default=None')
 parser.add_argument('--epochs', metavar='N', type=int, default=600, help='number of epochs, default=600')
+parser.add_argument('--impute', metavar='N', type=int, default=-1, help='number of dimensions to use, default=-1 (all)')
 parser.add_argument('--verbose', action='store_true', help='print more frequently')
 parser.add_argument('--features', metavar='N', type=int, default=-1, help='number of features to use, default=-1 (all)')
 parser.add_argument('--savepath', metavar='DIR', default=None, help='directory to save model and logs')
 parser.add_argument('--print_freq', metavar='N', type=int, default=100, help='printing/logging frequency, default=100')
 parser.add_argument('--val_fraction', metavar='float', default=0.1, help='fraction of train to use as val, default=0.2')
 parser.add_argument('--pca_components', metavar='N', type=int, default=200, help='number of components for PCA, default=200')
-parser.add_argument('--cross_val_splits', metavar='N', type=int, default=5, help='number of times to cross-validate, default=5')
-parser.add_argument('--no_preloaded_splits', action='store_true', help='do not use preloaded train/val/test splits')
+parser.add_argument('--preloaded_splits', default='../data/preloaded_datasets', help='preloaded splits, use \'none\' for new splits')
 parser.add_argument('-e', '--eval', dest='evaluate', action='store_true', help='evaluate and do not train, default: False')
 parser.add_argument('-t', '--test', dest='test', action='store_true', help='evaluate on the test set after training, default: False')
 
@@ -69,7 +69,7 @@ def main():
     logger.log('Data loaded in {:.1f}s\n'.format(time.time() - start))
 
     # Create cross-validation splits
-    kf = StratifiedKFold(n_splits=opt.cross_val_splits, random_state=seed, shuffle=True)
+    kf = StratifiedKFold(n_splits=5, random_state=seed, shuffle=True)
 
     # Cross validate 
     for i, (train_index, test_index) in enumerate(kf.split(data, label)):
@@ -77,17 +77,17 @@ def main():
         # Log split
         logger.log('------------- SPLIT {} --------------\n'.format(i+1))
 
-        # Train / test split 
-        data_X, data_X_test = data[train_index], data[test_index]
+        # Train / test split (ignored if opt.preloaded_splits is not 'none')
+        X, X_test = data[train_index], data[test_index]
         y, y_test = label[train_index], label[test_index]
 
         # Perform PCA and generate dataloader or load from saved file
         start = time.time()
-        if opt.no_preloaded_splits:
-            train_loader, val_loader, test_loader, input_size, num_classes = get_dataloader(data_X, 
-                data_X_test, y, y_test, opt.b, opt.val_fraction, opt.pca_components, i=i)
-        else:
-            train_loader, val_loader, test_loader, input_size, num_classes = get_dataloader_from_datasets(opt.b, i)
+        apply_pca_transform = True if opt.arch in ['mlp', 'logreg'] else False
+        train_loader, val_loader, test_loader, pca_components, input_size, num_classes = \
+            get_dataloader(opt.preloaded_splits, X, X_test, y, y_test, batch_size=opt.b, val_fraction=opt.val_fraction, 
+                           pca_components=opt.pca_components, apply_pca_transform=apply_pca_transform, 
+                           imputation_dim=opt.impute, split=i, save_dataset=True)
         logger.log('Dataloader loaded in {:.1f}s\n'.format(time.time() - start))
 
         # Model 
@@ -99,6 +99,9 @@ def main():
             model = MLP(input_size, num_classes, opt.dp) 
         elif arch == 'exp': 
             model = ExperimentalModel(input_size, num_classes, opt.dp)
+            pdb.set_trace()
+            model.embedding.weight.data.fill_(torch.from_numpy(pca_matrix))
+            model.embedding.weight.requires_grad = False
         print(model)
 
         # Pretrained / Initialization
