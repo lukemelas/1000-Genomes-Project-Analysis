@@ -38,18 +38,41 @@ def _standardize(X_train, X_val, X_test):
     X_test = scaler.transform(X_test, copy=False)
     return X_train, X_val, X_test
 
+def _save_dataset(X_train, X_val, X_test, y_train, y_val, y_test, pca_matrix, split):
+    save_root     = 'save/datasets/datasets_{}_'.format(split)
+    save_path_1   = save_root + '1' + '.pt' 
+    save_path_2   = save_root + '2' + '.pt' 
+    save_path_3   = save_root + '3' + '.pt' 
+    save_path_pca = save_root + 'pca' + '.pt' 
+    torch.save(X_train[:1000], save_path_1)
+    torch.save(X_train[1000:], save_path_2)
+    torch.save([X_val, X_test, y_train, y_val, y_test], save_path_3)
+    torch.save(pca_matrix, save_path_pca)
+    return save_root
+
+def _load_dataset(preloaded_splits, split):
+    save_root = os.path.join(preloaded_splits, 'datasets_{}_'.format(split))
+    save_path_1   = save_root + '1' + '.pt' 
+    save_path_2   = save_root + '2' + '.pt' 
+    save_path_3   = save_root + '3' + '.pt' 
+    save_path_pca = save_root + 'pca' + '.pt' 
+
+    X_train = torch.cat((torch.load(save_path_1), torch.load(save_path_2)), dim=0)
+    X_val, X_test, y_train, y_val, y_test = torch.load(save_path_3)
+    pca_matrix = torch.load(save_path_pca)
+
+    return X_train, X_val, X_test, y_train, y_val, y_test, pca_matrix
+
 def get_dataloader(preloaded_splits, X, X_test, y, y_test, batch_size=64, val_fraction=0.1, 
         pca_components=200, apply_pca_transform=True, 
         imputation_dim=-1, split=0, save_dataset=True):
     '''Loads pretrained splits or creates new splits. Returns dataloader.'''
 
     if preloaded_splits.lower() != 'none': 
-        # Load preloaded split
-        dataset_path = os.path.join(preloaded_splits, 'datasets_{}.pth'.format(split))
-        X_train, X_val, X_test, y_train, y_val, y_test, pca_matrix = torch.load(dataset_path)
+        X_train, X_val, X_test, y_train, y_val, y_test, pca_matrix = _load_dataset(preloaded_splits, split)
         print('Using preloaded split: {}'.format(dataset_path))
     else: 
-        # Generate split
+        # Generate train/val split (trainval/test split is already done)
         X_train, X_val, y_train, y_val = train_test_split(X, y, stratify=y, test_size=val_fraction, shuffle=True)
         # Standardize 
         X_train, X_val, X_test = _standardize(X_train, X_val, X_test)
@@ -59,13 +82,13 @@ def get_dataloader(preloaded_splits, X, X_test, y, y_test, batch_size=64, val_fr
         pca_matrix = ipca.components_ 
         # Save dataset
         if save_dataset:
-            save_path = save_dataset(X_train, X_val, X_test, y_train, y_val, y_test, pca_matrix, split)
+            save_path = _save_dataset(X_train, X_val, X_test, y_train, y_val, y_test, pca_matrix, split)
             print('Saved preloaded split: {}'.format(save_path))
 
     # Torchify
     X_train, X_val, X_test = [torch.FloatTensor(s).cuda() for s in [X_train, X_val, X_test]]
     y_train, y_val, y_test = [torch.LongTensor(s).cuda() for s in [y_train, y_val, y_test]]
-    pca_matrix = torch.from_numpy(pca_matrix).cuda() #.astype(np.float32, copy=False)).cuda()
+    pca_matrix = torch.from_numpy(pca_matrix).cuda() 
     
     # Apply PCA for faster training 
     if apply_pca_transform:
@@ -86,16 +109,4 @@ def get_dataloader(preloaded_splits, X, X_test, y, y_test, batch_size=64, val_fr
 
     return train_loader, val_loader, test_loader, pca_components, input_size, num_classes, pca_matrix
 
-
-def save_dataset(X_train, X_val, X_test, y_train, y_val, y_test, pca_matrix, split):
-    save_root     = 'save/datasets/datasets_{}_'.format(split)
-    save_path_1   = save_root + '1' + '.pt' 
-    save_path_1   = save_root + '2' + '.pt' 
-    save_path_1   = save_root + '3' + '.pt' 
-    save_path_1   = save_root + 'pca' + '.pt' 
-    torch.save(X_train[:1000], save_path_1)
-    torch.save(X_train[1000:], save_path_2)
-    torch.save([X_val, X_test, y_train, y_val, y_test], save_path_3)
-    torch.save(pca_matrix, save_path_pca)
-    return save_root
 

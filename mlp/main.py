@@ -73,7 +73,7 @@ def main():
         logger.log('Data loaded in {:.1f}s\n'.format(time.time() - start))
     else:
         data, label = np.zeros(5), np.zeros(5) # dummy labels for iterating over
-        logger.log('Using preloaded splits')
+        logger.log('Using preloaded splits\n')
 
     # Create cross-validation splits
     kf = StratifiedKFold(n_splits=5, random_state=seed, shuffle=True)
