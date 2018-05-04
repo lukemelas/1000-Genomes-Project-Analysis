@@ -3,6 +3,7 @@ import random
 
 import torch
 import torch.nn as nn
+import numpy as np
 
 import utils
 from dataloader import get_data, get_dataloader
@@ -36,9 +37,11 @@ parser.add_argument('--verbose', action='store_true', help='print more frequentl
 parser.add_argument('--features', metavar='N', type=int, default=-1, help='number of features to use, default=-1 (all)')
 parser.add_argument('--savepath', metavar='DIR', default=None, help='directory to save model and logs')
 parser.add_argument('--print_freq', metavar='N', type=int, default=100, help='printing/logging frequency, default=100')
+parser.add_argument('--hidden_size', metavar='N', type=int, default=100, help='hidden size for MLP, default=100')
+parser.add_argument('--finetune_pca', action='store_true', help='finetune PCA for experimental model')
 parser.add_argument('--val_fraction', metavar='float', default=0.1, help='fraction of train to use as val, default=0.2')
 parser.add_argument('--pca_components', metavar='N', type=int, default=200, help='number of components for PCA, default=200')
-parser.add_argument('--preloaded_splits', default='../data/preloaded_datasets', help='preloaded splits, use \'none\' for new splits')
+parser.add_argument('--preloaded_splits', default='none', help='preloaded splits, use \'none\' for new splits')
 parser.add_argument('-e', '--eval', dest='evaluate', action='store_true', help='evaluate and do not train, default: False')
 parser.add_argument('-t', '--test', dest='test', action='store_true', help='evaluate on the test set after training, default: False')
 
@@ -64,9 +67,13 @@ def main():
     logger.log('SEED: {}'.format(seed), stdout=False)
 
     # Load data
-    start = time.time()
-    data, label = get_data(opt.data, opt.label)
-    logger.log('Data loaded in {:.1f}s\n'.format(time.time() - start))
+    if opt.preloaded_splits.lower() == 'none':
+        start = time.time()
+        data, label = get_data(opt.data, opt.label)
+        logger.log('Data loaded in {:.1f}s\n'.format(time.time() - start))
+    else:
+        data, label = np.zeros(5), np.zeros(5) # dummy labels for iterating over
+        logger.log('Using preloaded splits')
 
     # Create cross-validation splits
     kf = StratifiedKFold(n_splits=5, random_state=seed, shuffle=True)
@@ -83,8 +90,8 @@ def main():
 
         # Perform PCA and generate dataloader or load from saved file
         start = time.time()
-        apply_pca_transform = True if opt.arch in ['mlp', 'logreg'] else False
-        train_loader, val_loader, test_loader, pca_components, input_size, num_classes = \
+        apply_pca_transform = (opt.arch not in ['exp'])
+        train_loader, val_loader, test_loader, pca_components, input_size, num_classes, pca_matrix = \
             get_dataloader(opt.preloaded_splits, X, X_test, y, y_test, batch_size=opt.b, val_fraction=opt.val_fraction, 
                            pca_components=opt.pca_components, apply_pca_transform=apply_pca_transform, 
                            imputation_dim=opt.impute, split=i, save_dataset=True)
@@ -94,25 +101,32 @@ def main():
         arch = opt.arch.lower()
         assert arch in ['logreg', 'mlp', 'exp']
         if arch == 'logreg': 
-            model = LogisticRegression(input_size, num_classes)
+            model = LogisticRegression(input_size, opt.pca_components, num_classes)
         elif arch == 'mlp':
-            model = MLP(input_size, num_classes, opt.dp) 
+            model = MLP(input_size, opt.hidden_size, num_classes, opt.dp) 
         elif arch == 'exp': 
-            model = ExperimentalModel(input_size, num_classes, opt.dp)
-            pdb.set_trace()
-            model.embedding.weight.data.fill_(torch.from_numpy(pca_matrix))
-            model.embedding.weight.requires_grad = False
-        print(model)
-
+            model = ExperimentalModel(input_size, opt.pca_components, opt.hidden_size, num_classes, opt.dp) 
+        
         # Pretrained / Initialization
         if opt.model is not None and os.path.isfile(opt.model):
+            # Pretrained model
             model.load_state_dict(torch.load(opt.model))
             logger.log('Loaded pretrained model.', stdout=(i==0))
         else:
+            # Initialize model uniformly
             for p in model.parameters():
                 p.data.uniform_(-0.1, 0.1)
             logger.log('Initialized model from scratch.', stdout=(i==0))
         model = model.cuda() if use_gpu else model
+        print(model)
+
+        # Initialize first layer with PCA and fix PCA weights if model requires
+        if opt.arch in ['exp']:
+            model.first_layer.weight.data.copy_(pca_matrix)
+            logger.log('Initialized first layer as PCA', stdout=(i==0))
+            if not opt.finetune_pca:
+                model.first_layer.weight.requires_grad = False
+                logger.log('Fixed PCA weights', stdout=(i==0))
 
         # Loss function and optimizer
         criterion = nn.CrossEntropyLoss(size_average=False)

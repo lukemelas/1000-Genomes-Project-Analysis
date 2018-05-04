@@ -2,6 +2,8 @@ import torch
 from torch.autograd import Variable as V
 use_gpu = torch.cuda.is_available()
 
+import pdb
+
 def validate(model, val_loader, criterion, visualize=False):
     model.eval()
 

@@ -47,6 +47,7 @@ def get_dataloader(preloaded_splits, X, X_test, y, y_test, batch_size=64, val_fr
         # Load preloaded split
         dataset_path = os.path.join(preloaded_splits, 'datasets_{}.pth'.format(split))
         X_train, X_val, X_test, y_train, y_val, y_test, pca_matrix = torch.load(dataset_path)
+        print('Using preloaded split: {}'.format(dataset_path))
     else: 
         # Generate split
         X_train, X_val, y_train, y_val = train_test_split(X, y, stratify=y, test_size=val_fraction, shuffle=True)
@@ -55,23 +56,21 @@ def get_dataloader(preloaded_splits, X, X_test, y, y_test, batch_size=64, val_fr
         # PCA
         ipca = IncrementalPCA(n_components=pca_components, batch_size=10*pca_components)
         ipca.fit(X_train)
-        pca_matrix = ipca.components_.astype(np.float16)
+        pca_matrix = ipca.components_ 
         # Save dataset
         if save_dataset:
-            X_train, X_val, X_test = [x.astype(np.float16, copy=False) for x in [X_train, X_val, X_test]]
-            torch.save([X_train, X_val, X_test, y_train, y_val, y_test, pca_matrix], 'save/datasets_{}.pth'.format(split))
-            #torch.save(pca_matrix, 'save/pca_matrix_{}.pth'.format(split))
-
-    # Apply PCA for faster training 
-    if apply_pca_transform:
-        X_train = ipca.transform(X_train)
-        X_val = ipca.transform(X_val)
-        X_test = ipca.transform(X_test)
+            save_path = save_dataset(X_train, X_val, X_test, y_train, y_val, y_test, pca_matrix, split)
+            print('Saved preloaded split: {}'.format(save_path))
 
     # Torchify
-    X_train, X_val, X_test = [torch.FloatTensor(s) for s in [X_train, X_val, X_test]]
-    y_train, y_val, y_test = [torch.LongTensor(s) for s in [y_train, y_val, y_test]]
+    X_train, X_val, X_test = [torch.FloatTensor(s).cuda() for s in [X_train, X_val, X_test]]
+    y_train, y_val, y_test = [torch.LongTensor(s).cuda() for s in [y_train, y_val, y_test]]
+    pca_matrix = torch.from_numpy(pca_matrix).cuda() #.astype(np.float32, copy=False)).cuda()
     
+    # Apply PCA for faster training 
+    if apply_pca_transform:
+        X_train, X_val, X_test = [x @ pca_matrix.t() for x in [X_train, X_val, X_test]]
+        
     # Constants 
     input_size, num_classes = X_train.size(1), y_train.max() + 1
 
@@ -85,5 +84,18 @@ def get_dataloader(preloaded_splits, X, X_test, y, y_test, batch_size=64, val_fr
     val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
     test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
-    return train_loader, val_loader, test_loader, pca_components, input_size, num_classes
+    return train_loader, val_loader, test_loader, pca_components, input_size, num_classes, pca_matrix
+
+
+def save_dataset(X_train, X_val, X_test, y_train, y_val, y_test, pca_matrix, split):
+    save_root     = 'save/datasets/datasets_{}_'.format(split)
+    save_path_1   = save_root + '1' + '.pt' 
+    save_path_1   = save_root + '2' + '.pt' 
+    save_path_1   = save_root + '3' + '.pt' 
+    save_path_1   = save_root + 'pca' + '.pt' 
+    torch.save(X_train[:1000], save_path_1)
+    torch.save(X_train[1000:], save_path_2)
+    torch.save([X_val, X_test, y_train, y_val, y_test], save_path_3)
+    torch.save(pca_matrix, save_path_pca)
+    return save_root
 
