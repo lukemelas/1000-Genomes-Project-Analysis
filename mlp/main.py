@@ -38,12 +38,13 @@ parser.add_argument('--features', metavar='N', type=int, default=-1, help='numbe
 parser.add_argument('--savepath', metavar='DIR', default=None, help='directory to save model and logs')
 parser.add_argument('--print_freq', metavar='N', type=int, default=100, help='printing/logging frequency, default=100')
 parser.add_argument('--hidden_size', metavar='N', type=int, default=100, help='hidden size for MLP, default=100')
-parser.add_argument('--finetune_pca', action='store_true', help='finetune PCA for experimental model')
+parser.add_argument('--finetune_pca', action='store_true', help='finetune PCA for experimental model, default=False')
 parser.add_argument('--val_fraction', metavar='float', default=0.1, help='fraction of train to use as val, default=0.2')
 parser.add_argument('--pca_components', metavar='N', type=int, default=200, help='number of components for PCA, default=200')
+parser.add_argument('--no_save_dataset', action='store_true', help='save dataset if preloaded_splits is none, default=True')
 parser.add_argument('--preloaded_splits', default='none', help='preloaded splits, use \'none\' for new splits')
-parser.add_argument('-e', '--eval', dest='evaluate', action='store_true', help='evaluate and do not train, default: False')
-parser.add_argument('-t', '--test', dest='test', action='store_true', help='evaluate on the test set after training, default: False')
+parser.add_argument('-e', '--eval', dest='evaluate', action='store_true', help='evaluate and do not train, default=False')
+parser.add_argument('-t', '--test', dest='test', action='store_true', help='evaluate on the test set after training, default=False')
 
 def main():
     global opt
@@ -94,7 +95,7 @@ def main():
         train_loader, val_loader, test_loader, pca_components, input_size, num_classes, pca_matrix = \
             get_dataloader(opt.preloaded_splits, X, X_test, y, y_test, batch_size=opt.b, val_fraction=opt.val_fraction, 
                            pca_components=opt.pca_components, apply_pca_transform=apply_pca_transform, 
-                           imputation_dim=opt.impute, split=i, save_dataset=True)
+                           imputation_dim=opt.impute, split=i, save_dataset=(not opt.no_save_dataset))
         logger.log('Dataloader loaded in {:.1f}s\n'.format(time.time() - start))
 
         # Model 

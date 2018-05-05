@@ -1,6 +1,6 @@
 import numpy 
 
-with open('gridsearch/results_2.txt', 'r') as file:
+with open('results_2.txt', 'r') as file:
     for line in file:
         l = line.strip().split()
         results = l[5:]
