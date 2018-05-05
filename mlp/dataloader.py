@@ -57,9 +57,12 @@ def _load_dataset(preloaded_splits, split):
     save_path_3   = save_root + '3' + '.pt' 
     save_path_pca = save_root + 'pca' + '.pt' 
 
-    X_train = torch.cat((torch.load(save_path_1), torch.load(save_path_2)), dim=0)
+    X_train_1 = torch.load(save_path_1)
+    X_train_2 = torch.load(save_path_2)
     X_val, X_test, y_train, y_val, y_test = torch.load(save_path_3)
     pca_matrix = torch.load(save_path_pca)
+
+    X_train = np.concatenate((X_train_1, X_train_2), axis=0)
 
     return X_train, X_val, X_test, y_train, y_val, y_test, pca_matrix
 
@@ -70,7 +73,7 @@ def get_dataloader(preloaded_splits, X, X_test, y, y_test, batch_size=64, val_fr
 
     if preloaded_splits.lower() != 'none': 
         X_train, X_val, X_test, y_train, y_val, y_test, pca_matrix = _load_dataset(preloaded_splits, split)
-        print('Using preloaded split: {}'.format(dataset_path))
+        print('Loaded preloaded split: {}'.format(preloaded_splits))
     else: 
         # Generate train/val split (trainval/test split is already done)
         X_train, X_val, y_train, y_val = train_test_split(X, y, stratify=y, test_size=val_fraction, shuffle=True)

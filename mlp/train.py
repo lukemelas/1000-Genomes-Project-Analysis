@@ -36,6 +36,7 @@ def validate(model, val_loader, criterion, visualize=False):
 
 def train(model, train_loader, val_loader, optimizer, criterion, logger, num_epochs=30, print_freq=50, model_id=1):
     best_acc = 0
+    vis_accs = []
     for epoch in range(num_epochs):
         model.train()
 
@@ -69,6 +70,12 @@ def train(model, train_loader, val_loader, optimizer, criterion, logger, num_epo
         # Log
         logger.log('Epoch[{}/{}] \t Validation Accuracy {}/{} = {:.3f}% \t Best Accuracy: {:.3f}'.format(
             epoch + 1, num_epochs, total_correct, total, 100 * acc, best_acc), stdout=(epoch % print_freq == 0))
+
+        # For visualization
+        vis_accs.append((total_loss/total, acc))
+
+    # Save for visualization
+    logger.save_model(vis_accs, 'visualization_accuracies.pt')
 
     return best_acc
 
